@@ -1,7 +1,4 @@
 import '../discoverten_page/widgets/discoverten_item_widget.dart';
-import 'bloc/discoverten_bloc.dart';
-import 'models/discoverten_item_model.dart';
-import 'models/discoverten_model.dart';
 import 'package:dreamease/core/app_export.dart';
 import 'package:dreamease/widgets/app_bar/appbar_subtitle.dart';
 import 'package:dreamease/widgets/app_bar/appbar_subtitle_three.dart';
@@ -11,14 +8,6 @@ import 'package:flutter/material.dart';
 
 class DiscovertenPage extends StatelessWidget {
   const DiscovertenPage({Key? key}) : super(key: key);
-
-  static Widget builder(BuildContext context) {
-    return BlocProvider<DiscovertenBloc>(
-        create: (context) => DiscovertenBloc(
-            DiscovertenState(discovertenModelObj: DiscovertenModel()))
-          ..add(DiscovertenInitialEvent()),
-        child: DiscovertenPage());
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,13 +20,13 @@ class DiscovertenPage extends StatelessWidget {
                 child: SingleChildScrollView(
                     padding: EdgeInsets.only(top: 8.v),
                     child: Column(children: [
-                      _buildDiscoverTen(context),
+                      _buildThirteen(context),
                       SizedBox(height: 16.v),
-                      _buildTimeRange(context),
+                      _buildThIGianNgTrung(context),
                       SizedBox(height: 19.v),
                       _buildAverageSleepTime(context),
                       SizedBox(height: 9.v),
-                      _buildCcTipsCho(context),
+                      _buildCCTipsCho(context),
                       _buildDarkXTabBar(context)
                     ])))));
   }
@@ -49,10 +38,10 @@ class DiscovertenPage extends StatelessWidget {
         title: Padding(
             padding: EdgeInsets.only(left: 15.h),
             child: Column(children: [
-              AppbarSubtitle(text: "lbl_h_m_nay_th_7".tr),
+              AppbarSubtitle(text: "Hôm nay,  Thứ 7"),
               SizedBox(height: 2.v),
               AppbarSubtitleThree(
-                  text: "msg_24_th_ng_t_2023".tr,
+                  text: "24 Tháng tư 2023",
                   margin: EdgeInsets.only(left: 12.h, right: 42.h))
             ])),
         actions: [
@@ -66,7 +55,7 @@ class DiscovertenPage extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildDiscoverTen(BuildContext context) {
+  Widget _buildThirteen(BuildContext context) {
     return Container(
         margin: EdgeInsets.symmetric(horizontal: 15.h),
         padding: EdgeInsets.all(5.h),
@@ -80,26 +69,15 @@ class DiscovertenPage extends StatelessWidget {
               Expanded(
                   child: SizedBox(
                       height: 70.v,
-                      child: BlocSelector<DiscovertenBloc, DiscovertenState,
-                              DiscovertenModel?>(
-                          selector: (state) => state.discovertenModelObj,
-                          builder: (context, discovertenModelObj) {
-                            return ListView.separated(
-                                padding: EdgeInsets.only(left: 2.h, top: 7.v),
-                                scrollDirection: Axis.horizontal,
-                                separatorBuilder: (context, index) {
-                                  return SizedBox(width: 15.h);
-                                },
-                                itemCount: discovertenModelObj
-                                        ?.discovertenItemList.length ??
-                                    0,
-                                itemBuilder: (context, index) {
-                                  DiscovertenItemModel model =
-                                      discovertenModelObj
-                                              ?.discovertenItemList[index] ??
-                                          DiscovertenItemModel();
-                                  return DiscovertenItemWidget(model);
-                                });
+                      child: ListView.separated(
+                          padding: EdgeInsets.only(left: 2.h, top: 7.v),
+                          scrollDirection: Axis.horizontal,
+                          separatorBuilder: (context, index) {
+                            return SizedBox(width: 15.h);
+                          },
+                          itemCount: 5,
+                          itemBuilder: (context, index) {
+                            return DiscovertenItemWidget();
                           }))),
               Padding(
                   padding: EdgeInsets.only(left: 15.h, top: 7.v),
@@ -114,7 +92,7 @@ class DiscovertenPage extends StatelessWidget {
                         SizedBox(height: 2.v),
                         Padding(
                             padding: EdgeInsets.only(left: 11.h),
-                            child: Text("lbl_wd".tr,
+                            child: Text("Wd",
                                 style: CustomTextStyles
                                     .bodySmallOpenSansWhiteA700))
                       ]))
@@ -122,7 +100,7 @@ class DiscovertenPage extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildTimeRange(BuildContext context) {
+  Widget _buildThIGianNgTrung(BuildContext context) {
     return Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.h),
         child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -139,7 +117,7 @@ class DiscovertenPage extends StatelessWidget {
                       children: [
                         SizedBox(
                             width: 71.h,
-                            child: Text("msg_th_i_gian_ng_trung".tr,
+                            child: Text("Thời gian ngủ trung bình 1 tuần",
                                 maxLines: 3,
                                 overflow: TextOverflow.ellipsis,
                                 style: CustomTextStyles.bodyMedium14)),
@@ -153,7 +131,7 @@ class DiscovertenPage extends StatelessWidget {
                                   RichText(
                                       text: TextSpan(children: [
                                         TextSpan(
-                                            text: "lbl_6_22".tr,
+                                            text: "6.2",
                                             style: CustomTextStyles
                                                 .displayMediumOpenSans),
                                         TextSpan(text: " ")
@@ -162,7 +140,7 @@ class DiscovertenPage extends StatelessWidget {
                                   Padding(
                                       padding: EdgeInsets.only(
                                           top: 31.v, bottom: 17.v),
-                                      child: Text("lbl_gi_ng_y".tr,
+                                      child: Text("giờ/ ngày",
                                           style: CustomTextStyles
                                               .bodySmallOpenSansWhiteA700))
                                 ])),
@@ -176,7 +154,7 @@ class DiscovertenPage extends StatelessWidget {
                   decoration: AppDecoration.fillGray.copyWith(
                       borderRadius: BorderRadiusStyle.roundedBorder17),
                   child: Column(mainAxisSize: MainAxisSize.min, children: [
-                    Text("msg_ch_t_l_ng_gi_c".tr,
+                    Text("Chất lượng giấc ngủ",
                         style: CustomTextStyles.bodyMedium14),
                     SizedBox(height: 3.v),
                     SizedBox(
@@ -198,7 +176,7 @@ class DiscovertenPage extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("msg_th_ng_tin_c_a_gi_c".tr,
+              Text("Thông tin của giấc ngủ gần đây",
                   style: CustomTextStyles.bodyMedium14),
               SizedBox(height: 24.v),
               Padding(
@@ -218,12 +196,12 @@ class DiscovertenPage extends StatelessWidget {
                               alignment: Alignment.bottomLeft,
                               child: Padding(
                                   padding: EdgeInsets.only(left: 5.h),
-                                  child: Text("lbl_b_t_u_i_ng".tr,
+                                  child: Text("Bắt đầu đi ngủ",
                                       style: CustomTextStyles
                                           .bodySmallOpenSansBluegray400))),
                           Align(
                               alignment: Alignment.topCenter,
-                              child: Text("lbl_10_12_pm".tr,
+                              child: Text("10:12 PM",
                                   style: CustomTextStyles
                                       .titleLargeOpenSansWhiteA700SemiBold))
                         ])),
@@ -242,12 +220,12 @@ class DiscovertenPage extends StatelessWidget {
                               alignment: Alignment.bottomLeft,
                               child: Padding(
                                   padding: EdgeInsets.only(left: 2.h),
-                                  child: Text("lbl_b_t_u_d_y".tr,
+                                  child: Text("Bắt đầu dậy",
                                       style: CustomTextStyles
                                           .bodySmallOpenSansBluegray400))),
                           Align(
                               alignment: Alignment.topCenter,
-                              child: Text("lbl_07_12_am".tr,
+                              child: Text("07:12 AM",
                                   style: CustomTextStyles
                                       .titleLargeOpenSansWhiteA700SemiBold))
                         ]))
@@ -260,12 +238,12 @@ class DiscovertenPage extends StatelessWidget {
                       children: [
                         Padding(
                             padding: EdgeInsets.only(top: 6.v, bottom: 13.v),
-                            child: Text("lbl_z".tr,
+                            child: Text("Z",
                                 style:
                                     CustomTextStyles.titleSmallOpenSansBold)),
                         Padding(
                             padding: EdgeInsets.only(top: 13.v, bottom: 12.v),
-                            child: Text("lbl_z".tr,
+                            child: Text("Z",
                                 style: CustomTextStyles
                                     .labelMediumOpenSansWhiteA700)),
                         Padding(
@@ -273,12 +251,12 @@ class DiscovertenPage extends StatelessWidget {
                             child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text("lbl_6h_52m".tr,
+                                  Text("6h 52m",
                                       style: CustomTextStyles
                                           .titleLargeOpenSansWhiteA700SemiBold),
                                   Padding(
                                       padding: EdgeInsets.only(left: 4.h),
-                                      child: Text("msg_t_ng_s_th_i_gian".tr,
+                                      child: Text("Tổng số thời gian đã ngủ",
                                           style: CustomTextStyles
                                               .bodySmallOpenSansBluegray400))
                                 ]))
@@ -288,7 +266,7 @@ class DiscovertenPage extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildCcTipsCho(BuildContext context) {
+  Widget _buildCCTipsCho(BuildContext context) {
     return Container(
         height: 153.v,
         width: 331.h,
@@ -302,7 +280,7 @@ class DiscovertenPage extends StatelessWidget {
               alignment: Alignment.topLeft,
               child: Padding(
                   padding: EdgeInsets.only(top: 13.v),
-                  child: Text("lbl_c_c_tips_cho".tr,
+                  child: Text("Các tips cho",
                       style: theme.textTheme.displaySmall))),
           CustomImageView(
               imagePath: ImageConstant.imgFile,
@@ -314,8 +292,8 @@ class DiscovertenPage extends StatelessWidget {
               alignment: Alignment.centerRight,
               child: Padding(
                   padding: EdgeInsets.only(right: 55.h),
-                  child: Text("lbl_gi_c_ng2".tr,
-                      style: theme.textTheme.displaySmall)))
+                  child:
+                      Text("giấc ngủ ", style: theme.textTheme.displaySmall)))
         ]));
   }
 
@@ -336,8 +314,6 @@ class DiscovertenPage extends StatelessWidget {
 
   /// Navigates to the sleepmodethirteenScreen when the action is triggered.
   onTapImage(BuildContext context) {
-    NavigatorService.pushNamed(
-      AppRoutes.sleepmodethirteenScreen,
-    );
+    Navigator.pushNamed(context, AppRoutes.sleepmodethirteenScreen);
   }
 }

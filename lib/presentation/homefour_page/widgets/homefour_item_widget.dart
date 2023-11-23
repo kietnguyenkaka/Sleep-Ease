@@ -1,17 +1,12 @@
-import '../models/homefour_item_model.dart';
 import 'package:dreamease/core/app_export.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class HomefourItemWidget extends StatelessWidget {
-  HomefourItemWidget(
-    this.homefourItemModelObj, {
-    Key? key,
-  }) : super(
+  const HomefourItemWidget({Key? key})
+      : super(
           key: key,
         );
-
-  HomefourItemModel homefourItemModelObj;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +16,7 @@ class HomefourItemWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomImageView(
-            imagePath: homefourItemModelObj?.ridinginthehorse,
+            imagePath: ImageConstant.imgRectangle11,
             height: 97.v,
             width: 132.h,
             radius: BorderRadius.circular(
@@ -30,7 +25,7 @@ class HomefourItemWidget extends StatelessWidget {
           ),
           SizedBox(height: 8.v),
           Text(
-            homefourItemModelObj.ridingInTheHorse!,
+            "Riding in the horse",
             style: theme.textTheme.labelLarge,
           ),
         ],

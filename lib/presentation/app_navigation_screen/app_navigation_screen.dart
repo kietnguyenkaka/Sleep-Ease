@@ -1,5 +1,3 @@
-import 'bloc/app_navigation_bloc.dart';
-import 'models/app_navigation_model.dart';
 import 'package:dreamease/core/app_export.dart';
 import 'package:flutter/material.dart';
 
@@ -9,151 +7,137 @@ class AppNavigationScreen extends StatelessWidget {
           key: key,
         );
 
-  static Widget builder(BuildContext context) {
-    return BlocProvider<AppNavigationBloc>(
-      create: (context) => AppNavigationBloc(AppNavigationState(
-        appNavigationModelObj: AppNavigationModel(),
-      ))
-        ..add(AppNavigationInitialEvent()),
-      child: AppNavigationScreen(),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     mediaQueryData = MediaQuery.of(context);
 
-    return BlocBuilder<AppNavigationBloc, AppNavigationState>(
-      builder: (context, state) {
-        return SafeArea(
-          child: Scaffold(
-            backgroundColor: Color(0XFFFFFFFF),
-            body: SizedBox(
-              width: double.maxFinite,
-              child: Column(
-                children: [
-                  _buildAppNavigation(context),
-                  Expanded(
-                    child: SingleChildScrollView(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Color(0XFFFFFFFF),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Color(0XFFFFFFFF),
+        body: SizedBox(
+          width: double.maxFinite,
+          child: Column(
+            children: [
+              _buildAppNavigation(context),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Color(0XFFFFFFFF),
+                    ),
+                    child: Column(
+                      children: [
+                        _buildScreenTitle(
+                          context,
+                          screenTitle: "LoadingScreenOne",
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              context, AppRoutes.loadingscreenoneScreen),
                         ),
-                        child: Column(
-                          children: [
-                            _buildScreenTitle(
-                              context,
-                              screenTitle: "LoadingScreenOne".tr,
-                              onTapScreenTitle: () => onTapScreenTitle(
-                                  AppRoutes.loadingscreenoneScreen),
-                            ),
-                            _buildScreenTitle(
-                              context,
-                              screenTitle: "InputnameTwo".tr,
-                              onTapScreenTitle: () => onTapScreenTitle(
-                                  AppRoutes.inputnametwoScreen),
-                            ),
-                            _buildScreenTitle(
-                              context,
-                              screenTitle: "SuggestThree".tr,
-                              onTapScreenTitle: () => onTapScreenTitle(
-                                  AppRoutes.suggestthreeScreen),
-                            ),
-                            _buildScreenTitle(
-                              context,
-                              screenTitle: "homeFive".tr,
-                              onTapScreenTitle: () =>
-                                  onTapScreenTitle(AppRoutes.homefiveScreen),
-                            ),
-                            _buildScreenTitle(
-                              context,
-                              screenTitle: "musicPlaylistSeven".tr,
-                              onTapScreenTitle: () => onTapScreenTitle(
-                                  AppRoutes.musicplaylistsevenScreen),
-                            ),
-                            _buildScreenTitle(
-                              context,
-                              screenTitle: "musicSongEight".tr,
-                              onTapScreenTitle: () => onTapScreenTitle(
-                                  AppRoutes.musicsongeightScreen),
-                            ),
-                            _buildScreenTitle(
-                              context,
-                              screenTitle: "CoutDownMusicNine".tr,
-                              onTapScreenTitle: () => onTapScreenTitle(
-                                  AppRoutes.coutdownmusicnineScreen),
-                            ),
-                            _buildScreenTitle(
-                              context,
-                              screenTitle: "DiscoverTen - Container".tr,
-                              onTapScreenTitle: () => onTapScreenTitle(
-                                  AppRoutes.discovertenContainerScreen),
-                            ),
-                            _buildScreenTitle(
-                              context,
-                              screenTitle: "TipsEleven".tr,
-                              onTapScreenTitle: () =>
-                                  onTapScreenTitle(AppRoutes.tipselevenScreen),
-                            ),
-                            _buildScreenTitle(
-                              context,
-                              screenTitle: "EntertheTipsTwelve".tr,
-                              onTapScreenTitle: () => onTapScreenTitle(
-                                  AppRoutes.enterthetipstwelveScreen),
-                            ),
-                            _buildScreenTitle(
-                              context,
-                              screenTitle: "SleepModeThirteen".tr,
-                              onTapScreenTitle: () => onTapScreenTitle(
-                                  AppRoutes.sleepmodethirteenScreen),
-                            ),
-                            _buildScreenTitle(
-                              context,
-                              screenTitle: "SuggestFourteen".tr,
-                              onTapScreenTitle: () => onTapScreenTitle(
-                                  AppRoutes.suggestfourteenScreen),
-                            ),
-                            _buildScreenTitle(
-                              context,
-                              screenTitle: "SleepReportFifteen".tr,
-                              onTapScreenTitle: () => onTapScreenTitle(
-                                  AppRoutes.sleepreportfifteenScreen),
-                            ),
-                            _buildScreenTitle(
-                              context,
-                              screenTitle: "profileSixteen".tr,
-                              onTapScreenTitle: () => onTapScreenTitle(
-                                  AppRoutes.profilesixteenScreen),
-                            ),
-                            _buildScreenTitle(
-                              context,
-                              screenTitle: "feedbacksNineteen".tr,
-                              onTapScreenTitle: () => onTapScreenTitle(
-                                  AppRoutes.feedbacksnineteenScreen),
-                            ),
-                            _buildScreenTitle(
-                              context,
-                              screenTitle: "HelpTwenty".tr,
-                              onTapScreenTitle: () =>
-                                  onTapScreenTitle(AppRoutes.helptwentyScreen),
-                            ),
-                            _buildScreenTitle(
-                              context,
-                              screenTitle: "ArchivementsSeventeen".tr,
-                              onTapScreenTitle: () => onTapScreenTitle(
-                                  AppRoutes.archivementsseventeenScreen),
-                            ),
-                          ],
+                        _buildScreenTitle(
+                          context,
+                          screenTitle: "InputnameTwo",
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              context, AppRoutes.inputnametwoScreen),
                         ),
-                      ),
+                        _buildScreenTitle(
+                          context,
+                          screenTitle: "SuggestThree",
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              context, AppRoutes.suggestthreeScreen),
+                        ),
+                        _buildScreenTitle(
+                          context,
+                          screenTitle: "homeFive",
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              context, AppRoutes.homefiveScreen),
+                        ),
+                        _buildScreenTitle(
+                          context,
+                          screenTitle: "musicPlaylistSeven",
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              context, AppRoutes.musicplaylistsevenScreen),
+                        ),
+                        _buildScreenTitle(
+                          context,
+                          screenTitle: "musicSongEight",
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              context, AppRoutes.musicsongeightScreen),
+                        ),
+                        _buildScreenTitle(
+                          context,
+                          screenTitle: "CoutDownMusicNine",
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              context, AppRoutes.coutdownmusicnineScreen),
+                        ),
+                        _buildScreenTitle(
+                          context,
+                          screenTitle: "DiscoverTen - Container",
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              context, AppRoutes.discovertenContainerScreen),
+                        ),
+                        _buildScreenTitle(
+                          context,
+                          screenTitle: "TipsEleven",
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              context, AppRoutes.tipselevenScreen),
+                        ),
+                        _buildScreenTitle(
+                          context,
+                          screenTitle: "EntertheTipsTwelve",
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              context, AppRoutes.enterthetipstwelveScreen),
+                        ),
+                        _buildScreenTitle(
+                          context,
+                          screenTitle: "SleepModeThirteen",
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              context, AppRoutes.sleepmodethirteenScreen),
+                        ),
+                        _buildScreenTitle(
+                          context,
+                          screenTitle: "SuggestFourteen",
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              context, AppRoutes.suggestfourteenScreen),
+                        ),
+                        _buildScreenTitle(
+                          context,
+                          screenTitle: "SleepReportFifteen",
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              context, AppRoutes.sleepreportfifteenScreen),
+                        ),
+                        _buildScreenTitle(
+                          context,
+                          screenTitle: "profileSixteen",
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              context, AppRoutes.profilesixteenScreen),
+                        ),
+                        _buildScreenTitle(
+                          context,
+                          screenTitle: "feedbacksNineteen",
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              context, AppRoutes.feedbacksnineteenScreen),
+                        ),
+                        _buildScreenTitle(
+                          context,
+                          screenTitle: "HelpTwenty",
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              context, AppRoutes.helptwentyScreen),
+                        ),
+                        _buildScreenTitle(
+                          context,
+                          screenTitle: "ArchivementsSeventeen",
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              context, AppRoutes.archivementsseventeenScreen),
+                        ),
+                      ],
                     ),
                   ),
-                ],
+                ),
               ),
-            ),
+            ],
           ),
-        );
-      },
+        ),
+      ),
     );
   }
 
@@ -171,7 +155,7 @@ class AppNavigationScreen extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.h),
               child: Text(
-                "App Navigation".tr,
+                "App Navigation",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Color(0XFF000000),
@@ -188,8 +172,7 @@ class AppNavigationScreen extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.only(left: 20.h),
               child: Text(
-                "Check your app's UI from the below demo screens of your app."
-                    .tr,
+                "Check your app's UI from the below demo screens of your app.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Color(0XFF888888),
@@ -258,7 +241,10 @@ class AppNavigationScreen extends StatelessWidget {
   }
 
   /// Common click event
-  void onTapScreenTitle(String routeName) {
-    NavigatorService.pushNamed(routeName);
+  void onTapScreenTitle(
+    BuildContext context,
+    String routeName,
+  ) {
+    Navigator.pushNamed(context, routeName);
   }
 }

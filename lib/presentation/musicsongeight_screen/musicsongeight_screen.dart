@@ -1,5 +1,3 @@
-import 'bloc/musicsongeight_bloc.dart';
-import 'models/musicsongeight_model.dart';
 import 'package:dreamease/core/app_export.dart';
 import 'package:dreamease/widgets/app_bar/appbar_leading_image.dart';
 import 'package:dreamease/widgets/app_bar/appbar_subtitle_one.dart';
@@ -9,194 +7,169 @@ import 'package:flutter/material.dart';
 class MusicsongeightScreen extends StatelessWidget {
   const MusicsongeightScreen({Key? key}) : super(key: key);
 
-  static Widget builder(BuildContext context) {
-    return BlocProvider<MusicsongeightBloc>(
-        create: (context) => MusicsongeightBloc(
-            MusicsongeightState(musicsongeightModelObj: MusicsongeightModel()))
-          ..add(MusicsongeightInitialEvent()),
-        child: MusicsongeightScreen());
-  }
-
   @override
   Widget build(BuildContext context) {
     mediaQueryData = MediaQuery.of(context);
-    return BlocBuilder<MusicsongeightBloc, MusicsongeightState>(
-        builder: (context, state) {
-      return SafeArea(
-          child: Scaffold(
-              body: SizedBox(
-                  width: double.maxFinite,
-                  child: SingleChildScrollView(
-                      child: SizedBox(
-                          height: mediaQueryData.size.height,
-                          width: double.maxFinite,
-                          child: Stack(
-                              alignment: Alignment.bottomCenter,
-                              children: [
-                                Align(
-                                    alignment: Alignment.center,
-                                    child: SizedBox(
-                                        height: mediaQueryData.size.height,
-                                        width: double.maxFinite,
-                                        child: Stack(
+    return SafeArea(
+        child: Scaffold(
+            body: SizedBox(
+                width: double.maxFinite,
+                child: SingleChildScrollView(
+                    child: SizedBox(
+                        height: mediaQueryData.size.height,
+                        width: double.maxFinite,
+                        child:
+                            Stack(alignment: Alignment.bottomCenter, children: [
+                          Align(
+                              alignment: Alignment.center,
+                              child: SizedBox(
+                                  height: mediaQueryData.size.height,
+                                  width: double.maxFinite,
+                                  child: Stack(
+                                      alignment: Alignment.center,
+                                      children: [
+                                        CustomImageView(
+                                            imagePath: ImageConstant.imgUnion,
+                                            height: 72.v,
+                                            width: 286.h,
+                                            alignment: Alignment.bottomRight,
+                                            margin:
+                                                EdgeInsets.only(bottom: 305.v)),
+                                        Align(
                                             alignment: Alignment.center,
-                                            children: [
-                                              CustomImageView(
-                                                  imagePath:
-                                                      ImageConstant.imgUnion,
-                                                  height: 72.v,
-                                                  width: 286.h,
-                                                  alignment:
-                                                      Alignment.bottomRight,
-                                                  margin: EdgeInsets.only(
-                                                      bottom: 305.v)),
-                                              Align(
-                                                  alignment: Alignment.center,
-                                                  child: Container(
-                                                      padding:
-                                                          EdgeInsets.symmetric(
-                                                              vertical: 11.v),
-                                                      decoration: AppDecoration
-                                                          .fillBlack90019,
-                                                      child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .end,
-                                                          children: [
-                                                            SizedBox(
-                                                                height: 50.v),
-                                                            _buildAppBar(
-                                                                context),
-                                                            SizedBox(
-                                                                height: 28.v),
-                                                            CustomImageView(
-                                                                imagePath:
-                                                                    ImageConstant
-                                                                        .imgPic,
-                                                                height: 140
-                                                                    .adaptSize,
-                                                                width: 140
-                                                                    .adaptSize,
-                                                                radius: BorderRadius
-                                                                    .circular(
-                                                                        16.h)),
-                                                            SizedBox(
-                                                                height: 9.v),
-                                                            Text(
-                                                                "lbl_misery_sequence"
-                                                                    .tr,
-                                                                style: theme
-                                                                    .textTheme
-                                                                    .titleLarge),
-                                                            SizedBox(
-                                                                height: 8.v),
-                                                            Text(
-                                                                "msg_brutality_will_prevail"
-                                                                    .tr,
-                                                                style: CustomTextStyles
-                                                                    .bodyLargeGray600),
-                                                            SizedBox(
-                                                                height: 96.v),
-                                                            Text("lbl_01_12".tr,
-                                                                style: CustomTextStyles
-                                                                    .bodyMediumInterGray600),
-                                                            SizedBox(
-                                                                height: 16.v),
-                                                            SizedBox(
-                                                                height: 44.v,
-                                                                child: VerticalDivider(
-                                                                    width: 2.h,
-                                                                    thickness:
-                                                                        2.v,
-                                                                    color: appTheme
-                                                                        .blueGray50)),
-                                                            SizedBox(
-                                                                height: 75.v),
-                                                            _buildIconBar(
-                                                                context),
-                                                            SizedBox(
-                                                                height: 31.v),
-                                                            Padding(
-                                                                padding: EdgeInsets
-                                                                    .symmetric(
-                                                                        horizontal: 67
-                                                                            .h),
-                                                                child: Row(
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .spaceBetween,
-                                                                    children: [
-                                                                      CustomImageView(
-                                                                          imagePath: ImageConstant
-                                                                              .imgUiIconSkip,
-                                                                          height: 24
-                                                                              .adaptSize,
-                                                                          width: 24
-                                                                              .adaptSize,
-                                                                          margin:
-                                                                              EdgeInsets.symmetric(vertical: 10.v)),
-                                                                      CustomImageView(
-                                                                          imagePath: ImageConstant
-                                                                              .imgUiIconPlay,
-                                                                          height: 44
-                                                                              .adaptSize,
-                                                                          width:
-                                                                              44.adaptSize),
-                                                                      CustomImageView(
-                                                                          imagePath: ImageConstant
-                                                                              .imgUiIconSkip,
-                                                                          height: 24
-                                                                              .adaptSize,
-                                                                          width: 24
-                                                                              .adaptSize,
-                                                                          margin:
-                                                                              EdgeInsets.symmetric(vertical: 10.v))
-                                                                    ])),
-                                                            SizedBox(
-                                                                height: 108.v),
-                                                            Padding(
-                                                                padding: EdgeInsets
-                                                                    .symmetric(
-                                                                        horizontal: 49
-                                                                            .h),
-                                                                child: Row(
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .spaceBetween,
-                                                                    children: [
-                                                                      CustomImageView(
-                                                                          imagePath: ImageConstant
-                                                                              .imgUiIconHomeBlueGray50,
-                                                                          height: 24
-                                                                              .adaptSize,
-                                                                          width: 24
-                                                                              .adaptSize,
-                                                                          margin:
-                                                                              EdgeInsets.only(bottom: 2.v)),
-                                                                      CustomImageView(
-                                                                          imagePath: ImageConstant
-                                                                              .imgUiIconRadioDeepPurple300,
-                                                                          height: 24
-                                                                              .adaptSize,
-                                                                          width: 24
-                                                                              .adaptSize,
-                                                                          margin:
-                                                                              EdgeInsets.only(bottom: 2.v)),
-                                                                      CustomImageView(
-                                                                          imagePath: ImageConstant
-                                                                              .imgUiIconCloud,
-                                                                          height: 24
-                                                                              .adaptSize,
-                                                                          width:
-                                                                              24.adaptSize)
-                                                                    ]))
-                                                          ])))
-                                            ]))),
-                                _buildUITabBarPlayer(context)
-                              ]))))));
-    });
+                                            child: Container(
+                                                padding: EdgeInsets.symmetric(
+                                                    vertical: 11.v),
+                                                decoration: AppDecoration
+                                                    .fillBlack90019,
+                                                child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.end,
+                                                    children: [
+                                                      SizedBox(height: 50.v),
+                                                      _buildAppBar(context),
+                                                      SizedBox(height: 28.v),
+                                                      CustomImageView(
+                                                          imagePath:
+                                                              ImageConstant
+                                                                  .imgPic,
+                                                          height: 140.adaptSize,
+                                                          width: 140.adaptSize,
+                                                          radius: BorderRadius
+                                                              .circular(16.h)),
+                                                      SizedBox(height: 9.v),
+                                                      Text("Misery Sequence",
+                                                          style: theme.textTheme
+                                                              .titleLarge),
+                                                      SizedBox(height: 8.v),
+                                                      Text(
+                                                          "Brutality Will Prevail",
+                                                          style: CustomTextStyles
+                                                              .bodyLargeGray600),
+                                                      SizedBox(height: 96.v),
+                                                      Text("01:12",
+                                                          style: CustomTextStyles
+                                                              .bodyMediumInterGray600),
+                                                      SizedBox(height: 16.v),
+                                                      SizedBox(
+                                                          height: 44.v,
+                                                          child: VerticalDivider(
+                                                              width: 2.h,
+                                                              thickness: 2.v,
+                                                              color: appTheme
+                                                                  .blueGray50)),
+                                                      SizedBox(height: 75.v),
+                                                      _buildIconBar(context),
+                                                      SizedBox(height: 31.v),
+                                                      Padding(
+                                                          padding: EdgeInsets
+                                                              .symmetric(
+                                                                  horizontal:
+                                                                      67.h),
+                                                          child: Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                CustomImageView(
+                                                                    imagePath:
+                                                                        ImageConstant
+                                                                            .imgUiIconSkip,
+                                                                    height: 24
+                                                                        .adaptSize,
+                                                                    width: 24
+                                                                        .adaptSize,
+                                                                    margin: EdgeInsets.symmetric(
+                                                                        vertical:
+                                                                            10.v)),
+                                                                CustomImageView(
+                                                                    imagePath:
+                                                                        ImageConstant
+                                                                            .imgUiIconPlay,
+                                                                    height: 44
+                                                                        .adaptSize,
+                                                                    width: 44
+                                                                        .adaptSize),
+                                                                CustomImageView(
+                                                                    imagePath:
+                                                                        ImageConstant
+                                                                            .imgUiIconSkip,
+                                                                    height: 24
+                                                                        .adaptSize,
+                                                                    width: 24
+                                                                        .adaptSize,
+                                                                    margin: EdgeInsets.symmetric(
+                                                                        vertical:
+                                                                            10.v))
+                                                              ])),
+                                                      SizedBox(height: 108.v),
+                                                      Padding(
+                                                          padding: EdgeInsets
+                                                              .symmetric(
+                                                                  horizontal:
+                                                                      49.h),
+                                                          child: Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                CustomImageView(
+                                                                    imagePath:
+                                                                        ImageConstant
+                                                                            .imgUiIconHomeBlueGray50,
+                                                                    height: 24
+                                                                        .adaptSize,
+                                                                    width: 24
+                                                                        .adaptSize,
+                                                                    margin: EdgeInsets.only(
+                                                                        bottom:
+                                                                            2.v)),
+                                                                CustomImageView(
+                                                                    imagePath:
+                                                                        ImageConstant
+                                                                            .imgUiIconRadioDeepPurple300,
+                                                                    height: 24
+                                                                        .adaptSize,
+                                                                    width: 24
+                                                                        .adaptSize,
+                                                                    margin: EdgeInsets.only(
+                                                                        bottom:
+                                                                            2.v)),
+                                                                CustomImageView(
+                                                                    imagePath:
+                                                                        ImageConstant
+                                                                            .imgUiIconCloud,
+                                                                    height: 24
+                                                                        .adaptSize,
+                                                                    width: 24
+                                                                        .adaptSize)
+                                                              ]))
+                                                    ])))
+                                      ]))),
+                          _buildUITabBarPlayer(context)
+                        ]))))));
   }
 
   /// Section Widget
@@ -211,7 +184,7 @@ class MusicsongeightScreen extends StatelessWidget {
               onTapArrowLeft(context);
             }),
         centerTitle: true,
-        title: AppbarSubtitleOne(text: "msg_chillout_and_ambient".tr));
+        title: AppbarSubtitleOne(text: "Chillout and Ambient"));
   }
 
   /// Section Widget
@@ -226,7 +199,7 @@ class MusicsongeightScreen extends StatelessWidget {
               width: 24.adaptSize),
           Padding(
               padding: EdgeInsets.only(bottom: 3.v),
-              child: Text("lbl_share_track".tr,
+              child: Text("Share track",
                   style: CustomTextStyles.titleMediumInterDeeppurple300)),
           CustomImageView(
               imagePath: ImageConstant.imgTadaUiIcon24x24Share,
@@ -264,10 +237,10 @@ class MusicsongeightScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Column(children: [
-                          Text("lbl_misery_sequence".tr,
+                          Text("Misery Sequence",
                               style: theme.textTheme.bodyLarge),
                           SizedBox(height: 5.v),
-                          Text("msg_brutality_will_prevail".tr,
+                          Text("Brutality Will Prevail",
                               style: CustomTextStyles.bodyMediumInterGray600)
                         ]),
                         Container(
@@ -321,22 +294,18 @@ class MusicsongeightScreen extends StatelessWidget {
             ])));
   }
 
-  /// Navigates to the previous screen.
+  /// Navigates back to the previous screen.
   onTapArrowLeft(BuildContext context) {
-    NavigatorService.goBack();
+    Navigator.pop(context);
   }
 
   /// Navigates to the musicplaylistsevenScreen when the action is triggered.
   onTapImgUIIconHome(BuildContext context) {
-    NavigatorService.pushNamed(
-      AppRoutes.musicplaylistsevenScreen,
-    );
+    Navigator.pushNamed(context, AppRoutes.musicplaylistsevenScreen);
   }
 
   /// Navigates to the coutdownmusicnineScreen when the action is triggered.
   onTapImgUIIconCloud(BuildContext context) {
-    NavigatorService.pushNamed(
-      AppRoutes.coutdownmusicnineScreen,
-    );
+    Navigator.pushNamed(context, AppRoutes.coutdownmusicnineScreen);
   }
 }

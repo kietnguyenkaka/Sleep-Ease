@@ -1,20 +1,13 @@
-import 'bloc/suggestfourteen_bloc.dart';
-import 'models/suggestfourteen_model.dart';
 import 'package:dreamease/core/app_export.dart';
 import 'package:dreamease/widgets/custom_elevated_button.dart';
 import 'package:dreamease/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
+// ignore_for_file: must_be_immutable
 class SuggestfourteenScreen extends StatelessWidget {
-  const SuggestfourteenScreen({Key? key}) : super(key: key);
+  SuggestfourteenScreen({Key? key}) : super(key: key);
 
-  static Widget builder(BuildContext context) {
-    return BlocProvider<SuggestfourteenBloc>(
-        create: (context) => SuggestfourteenBloc(SuggestfourteenState(
-            suggestfourteenModelObj: SuggestfourteenModel()))
-          ..add(SuggestfourteenInitialEvent()),
-        child: SuggestfourteenScreen());
-  }
+  TextEditingController editTextController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +71,7 @@ class SuggestfourteenScreen extends StatelessWidget {
                                         child: Padding(
                                             padding:
                                                 EdgeInsets.only(right: 12.h),
-                                            child: Text("lbl_thuan".tr,
+                                            child: Text("Thuan",
                                                 style: theme
                                                     .textTheme.headlineLarge)))
                                   ]))),
@@ -87,7 +80,7 @@ class SuggestfourteenScreen extends StatelessWidget {
                       SizedBox(height: 46.v),
                       CustomElevatedButton(
                           width: 180.h,
-                          text: "lbl_next".tr,
+                          text: "Next",
                           onPressed: () {
                             onTapNext(context);
                           }),
@@ -108,25 +101,18 @@ class SuggestfourteenScreen extends StatelessWidget {
             children: [
               Padding(
                   padding: EdgeInsets.only(left: 25.h),
-                  child: Text("msg_h_y_nh_gi_gi_c".tr,
+                  child: Text("Hãy đánh giá giấc ngủ của bạn",
                       style: CustomTextStyles.bodyMedium14)),
               SizedBox(height: 18.v),
-              BlocSelector<SuggestfourteenBloc, SuggestfourteenState,
-                      TextEditingController?>(
-                  selector: (state) => state.editTextController,
-                  builder: (context, editTextController) {
-                    return CustomTextFormField(
-                        controller: editTextController,
-                        textInputAction: TextInputAction.done);
-                  }),
+              CustomTextFormField(
+                  controller: editTextController,
+                  textInputAction: TextInputAction.done),
               SizedBox(height: 17.v)
             ]));
   }
 
   /// Navigates to the inputnametwoScreen when the action is triggered.
   onTapNext(BuildContext context) {
-    NavigatorService.pushNamed(
-      AppRoutes.inputnametwoScreen,
-    );
+    Navigator.pushNamed(context, AppRoutes.inputnametwoScreen);
   }
 }

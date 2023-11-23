@@ -1,5 +1,3 @@
-import 'bloc/profilesixteen_bloc.dart';
-import 'models/profilesixteen_model.dart';
 import 'package:dreamease/core/app_export.dart';
 import 'package:dreamease/widgets/custom_bottom_bar.dart';
 import 'package:dreamease/widgets/custom_elevated_button.dart';
@@ -11,50 +9,38 @@ class ProfilesixteenScreen extends StatelessWidget {
 
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 
-  static Widget builder(BuildContext context) {
-    return BlocProvider<ProfilesixteenBloc>(
-        create: (context) => ProfilesixteenBloc(
-            ProfilesixteenState(profilesixteenModelObj: ProfilesixteenModel()))
-          ..add(ProfilesixteenInitialEvent()),
-        child: ProfilesixteenScreen());
-  }
-
   @override
   Widget build(BuildContext context) {
     mediaQueryData = MediaQuery.of(context);
-    return BlocBuilder<ProfilesixteenBloc, ProfilesixteenState>(
-        builder: (context, state) {
-      return SafeArea(
-          child: Scaffold(
-              body: Container(
-                  width: double.maxFinite,
-                  padding: EdgeInsets.symmetric(vertical: 8.v),
-                  child: Column(children: [
-                    SizedBox(height: 20.v),
-                    Expanded(
-                        child: SingleChildScrollView(
-                            child: Column(children: [
-                      CustomImageView(
-                          imagePath: ImageConstant.imgAvatars3dAvatar24,
-                          height: 174.adaptSize,
-                          width: 174.adaptSize),
-                      SizedBox(height: 17.v),
-                      Text("lbl_thuan".tr,
-                          style: theme.textTheme.headlineSmall),
-                      SizedBox(height: 77.v),
-                      _buildNotificationStack(context),
-                      SizedBox(height: 123.v),
-                      Container(
-                          height: 92.v,
-                          width: double.maxFinite,
-                          decoration:
-                              BoxDecoration(color: appTheme.blueGray90003))
-                    ])))
-                  ])),
-              bottomNavigationBar: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 23.h),
-                  child: _buildBottomBar(context))));
-    });
+    return SafeArea(
+        child: Scaffold(
+            body: Container(
+                width: double.maxFinite,
+                padding: EdgeInsets.symmetric(vertical: 8.v),
+                child: Column(children: [
+                  SizedBox(height: 20.v),
+                  Expanded(
+                      child: SingleChildScrollView(
+                          child: Column(children: [
+                    CustomImageView(
+                        imagePath: ImageConstant.imgAvatars3dAvatar24,
+                        height: 174.adaptSize,
+                        width: 174.adaptSize),
+                    SizedBox(height: 17.v),
+                    Text("Thuan", style: theme.textTheme.headlineSmall),
+                    SizedBox(height: 77.v),
+                    _buildNotificationStack(context),
+                    SizedBox(height: 123.v),
+                    Container(
+                        height: 92.v,
+                        width: double.maxFinite,
+                        decoration:
+                            BoxDecoration(color: appTheme.blueGray90003))
+                  ])))
+                ])),
+            bottomNavigationBar: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 23.h),
+                child: _buildBottomBar(context))));
   }
 
   /// Section Widget
@@ -75,13 +61,13 @@ class ProfilesixteenScreen extends StatelessWidget {
                         },
                         child: Padding(
                             padding: EdgeInsets.only(left: 42.h),
-                            child: Text("msg_danh_hi_u_c_a_t_i".tr,
+                            child: Text("Danh hiệu của tôi",
                                 style: theme.textTheme.bodyMedium))),
                     SizedBox(height: 46.v),
                     CustomElevatedButton(
                         height: 30.v,
                         width: 114.h,
-                        text: "lbl_th_ng_b_o".tr,
+                        text: "Thông báo",
                         leftIcon: Container(
                             margin: EdgeInsets.only(right: 10.h),
                             child: CustomImageView(
@@ -108,7 +94,8 @@ class ProfilesixteenScreen extends StatelessWidget {
                               child: Padding(
                                   padding:
                                       EdgeInsets.only(left: 13.h, bottom: 3.v),
-                                  child: Text("msg_vi_t_feedbacks_cho".tr,
+                                  child: Text(
+                                      "Viết feedbacks cho nhà phát triển ứng dụng",
                                       style: theme.textTheme.bodyMedium)))
                         ])),
                     SizedBox(height: 44.v),
@@ -130,7 +117,7 @@ class ProfilesixteenScreen extends StatelessWidget {
                               child: Padding(
                                   padding:
                                       EdgeInsets.only(left: 12.h, bottom: 3.v),
-                                  child: Text("lbl_tr_gi_p_y_t".tr,
+                                  child: Text("Trợ giúp y tế",
                                       style: theme.textTheme.bodyMedium)))
                         ])),
                     SizedBox(height: 39.v),
@@ -140,7 +127,7 @@ class ProfilesixteenScreen extends StatelessWidget {
                         },
                         child: Padding(
                             padding: EdgeInsets.only(left: 42.h),
-                            child: Text("msg_xo_d_li_u_c_a".tr,
+                            child: Text("Xoá dữ liệu của tôi",
                                 style: theme.textTheme.bodyMedium)))
                   ])),
           CustomImageView(
@@ -170,57 +157,41 @@ class ProfilesixteenScreen extends StatelessWidget {
 
   /// Navigates to the archivementsseventeenScreen when the action is triggered.
   onTapTxtDanhHiUCATI(BuildContext context) {
-    NavigatorService.pushNamed(
-      AppRoutes.archivementsseventeenScreen,
-    );
+    Navigator.pushNamed(context, AppRoutes.archivementsseventeenScreen);
   }
 
   /// Navigates to the feedbacksnineteenScreen when the action is triggered.
   onTapImgEdit(BuildContext context) {
-    NavigatorService.pushNamed(
-      AppRoutes.feedbacksnineteenScreen,
-    );
+    Navigator.pushNamed(context, AppRoutes.feedbacksnineteenScreen);
   }
 
   /// Navigates to the feedbacksnineteenScreen when the action is triggered.
   onTapTxtViTFeedbacksCho(BuildContext context) {
-    NavigatorService.pushNamed(
-      AppRoutes.feedbacksnineteenScreen,
-    );
+    Navigator.pushNamed(context, AppRoutes.feedbacksnineteenScreen);
   }
 
   /// Navigates to the helptwentyScreen when the action is triggered.
   onTapImgLocation(BuildContext context) {
-    NavigatorService.pushNamed(
-      AppRoutes.helptwentyScreen,
-    );
+    Navigator.pushNamed(context, AppRoutes.helptwentyScreen);
   }
 
   /// Navigates to the helptwentyScreen when the action is triggered.
   onTapTxtTrGiPYT(BuildContext context) {
-    NavigatorService.pushNamed(
-      AppRoutes.helptwentyScreen,
-    );
+    Navigator.pushNamed(context, AppRoutes.helptwentyScreen);
   }
 
   /// Navigates to the inputnametwoScreen when the action is triggered.
   onTapTxtXoDLiUCA(BuildContext context) {
-    NavigatorService.pushNamed(
-      AppRoutes.inputnametwoScreen,
-    );
+    Navigator.pushNamed(context, AppRoutes.inputnametwoScreen);
   }
 
   /// Navigates to the archivementsseventeenScreen when the action is triggered.
   onTapImgSearch(BuildContext context) {
-    NavigatorService.pushNamed(
-      AppRoutes.archivementsseventeenScreen,
-    );
+    Navigator.pushNamed(context, AppRoutes.archivementsseventeenScreen);
   }
 
   /// Navigates to the inputnametwoScreen when the action is triggered.
   onTapImgClose(BuildContext context) {
-    NavigatorService.pushNamed(
-      AppRoutes.inputnametwoScreen,
-    );
+    Navigator.pushNamed(context, AppRoutes.inputnametwoScreen);
   }
 }

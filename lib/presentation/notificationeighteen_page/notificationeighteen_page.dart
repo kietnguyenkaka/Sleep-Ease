@@ -1,20 +1,9 @@
 import '../notificationeighteen_page/widgets/notificationeighteen_item_widget.dart';
-import 'bloc/notificationeighteen_bloc.dart';
-import 'models/notificationeighteen_item_model.dart';
-import 'models/notificationeighteen_model.dart';
 import 'package:dreamease/core/app_export.dart';
 import 'package:flutter/material.dart';
 
 class NotificationeighteenPage extends StatelessWidget {
   const NotificationeighteenPage({Key? key}) : super(key: key);
-
-  static Widget builder(BuildContext context) {
-    return BlocProvider<NotificationeighteenBloc>(
-        create: (context) => NotificationeighteenBloc(NotificationeighteenState(
-            notificationeighteenModelObj: NotificationeighteenModel()))
-          ..add(NotificationeighteenInitialEvent()),
-        child: NotificationeighteenPage());
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +41,7 @@ class NotificationeighteenPage extends StatelessWidget {
                                     Padding(
                                         padding: EdgeInsets.only(
                                             left: 10.h, bottom: 8.v),
-                                        child: Text("lbl_th_ng_b_o".tr,
+                                        child: Text("Thông báo",
                                             style: theme.textTheme.bodyMedium))
                                   ])),
                           SizedBox(height: 78.v),
@@ -64,31 +53,20 @@ class NotificationeighteenPage extends StatelessWidget {
   Widget _buildNotificationEighteen(BuildContext context) {
     return Padding(
         padding: EdgeInsets.only(left: 1.h),
-        child: BlocSelector<NotificationeighteenBloc, NotificationeighteenState,
-                NotificationeighteenModel?>(
-            selector: (state) => state.notificationeighteenModelObj,
-            builder: (context, notificationeighteenModelObj) {
-              return ListView.separated(
-                  physics: NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  separatorBuilder: (context, index) {
-                    return SizedBox(height: 17.v);
-                  },
-                  itemCount: notificationeighteenModelObj
-                          ?.notificationeighteenItemList.length ??
-                      0,
-                  itemBuilder: (context, index) {
-                    NotificationeighteenItemModel model =
-                        notificationeighteenModelObj
-                                ?.notificationeighteenItemList[index] ??
-                            NotificationeighteenItemModel();
-                    return NotificationeighteenItemWidget(model);
-                  });
+        child: ListView.separated(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            separatorBuilder: (context, index) {
+              return SizedBox(height: 17.v);
+            },
+            itemCount: 3,
+            itemBuilder: (context, index) {
+              return NotificationeighteenItemWidget();
             }));
   }
 
-  /// Navigates to the previous screen.
+  /// Navigates back to the previous screen.
   onTapImgArrowLeft(BuildContext context) {
-    NavigatorService.goBack();
+    Navigator.pop(context);
   }
 }

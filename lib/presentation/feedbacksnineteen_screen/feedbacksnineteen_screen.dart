@@ -1,5 +1,3 @@
-import 'bloc/feedbacksnineteen_bloc.dart';
-import 'models/feedbacksnineteen_model.dart';
 import 'package:dreamease/core/app_export.dart';
 import 'package:dreamease/widgets/app_bar/appbar_leading_image.dart';
 import 'package:dreamease/widgets/app_bar/custom_app_bar.dart';
@@ -14,49 +12,38 @@ class FeedbacksnineteenScreen extends StatelessWidget {
 
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 
-  static Widget builder(BuildContext context) {
-    return BlocProvider<FeedbacksnineteenBloc>(
-        create: (context) => FeedbacksnineteenBloc(FeedbacksnineteenState(
-            feedbacksnineteenModelObj: FeedbacksnineteenModel()))
-          ..add(FeedbacksnineteenInitialEvent()),
-        child: FeedbacksnineteenScreen());
-  }
-
   @override
   Widget build(BuildContext context) {
     mediaQueryData = MediaQuery.of(context);
-    return BlocBuilder<FeedbacksnineteenBloc, FeedbacksnineteenState>(
-        builder: (context, state) {
-      return SafeArea(
-          child: Scaffold(
-              appBar: _buildAppBar(context),
-              body: SizedBox(
-                  width: mediaQueryData.size.width,
-                  child: SingleChildScrollView(
-                      child: Column(children: [
-                    _buildEditRow(context),
-                    SizedBox(height: 12.v),
-                    Container(
-                        width: 293.h,
-                        margin: EdgeInsets.only(left: 46.h, right: 36.h),
-                        child: Text("msg_xin_ch_o_ch_ng".tr,
-                            maxLines: 6,
-                            overflow: TextOverflow.ellipsis,
-                            style: theme.textTheme.bodyMedium)),
-                    SizedBox(height: 5.v),
-                    _buildModalColumn(context),
-                    _buildLastSleepInformationStack(context),
-                    SizedBox(height: 30.v),
-                    Container(
-                        height: 92.v,
-                        width: double.maxFinite,
-                        decoration:
-                            BoxDecoration(color: appTheme.blueGray90003))
-                  ]))),
-              bottomNavigationBar: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 23.h),
-                  child: _buildBottomBar(context))));
-    });
+    return SafeArea(
+        child: Scaffold(
+            appBar: _buildAppBar(context),
+            body: SizedBox(
+                width: mediaQueryData.size.width,
+                child: SingleChildScrollView(
+                    child: Column(children: [
+                  _buildEditRow(context),
+                  SizedBox(height: 12.v),
+                  Container(
+                      width: 293.h,
+                      margin: EdgeInsets.only(left: 46.h, right: 36.h),
+                      child: Text(
+                          "Xin Chào! Chúng mình là đội phát triển ứng dụng DreamEase, Đây là sản phẩm đầu tiên của chúng mình nên cũng có nhiều sai sót, mong rằng các bạn hãy đánh giá sản phẩm\nđể chúng mình có thể cải thiện sớm nhất có thể !",
+                          maxLines: 6,
+                          overflow: TextOverflow.ellipsis,
+                          style: theme.textTheme.bodyMedium)),
+                  SizedBox(height: 5.v),
+                  _buildModalColumn(context),
+                  _buildLastSleepInformationStack(context),
+                  SizedBox(height: 30.v),
+                  Container(
+                      height: 92.v,
+                      width: double.maxFinite,
+                      decoration: BoxDecoration(color: appTheme.blueGray90003))
+                ]))),
+            bottomNavigationBar: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 23.h),
+                child: _buildBottomBar(context))));
   }
 
   /// Section Widget
@@ -80,7 +67,7 @@ class FeedbacksnineteenScreen extends StatelessWidget {
               imagePath: ImageConstant.imgEdit, height: 25.v, width: 26.h),
           Padding(
               padding: EdgeInsets.only(left: 19.h, bottom: 3.v),
-              child: Text("msg_vi_t_feedbacks_cho".tr,
+              child: Text("Viết feedbacks cho nhà phát triển ứng dụng",
                   style: theme.textTheme.bodyMedium))
         ]));
   }
@@ -98,13 +85,14 @@ class FeedbacksnineteenScreen extends StatelessWidget {
               width: 287.h,
               decoration: BoxDecoration(color: appTheme.black900)),
           SizedBox(height: 13.v),
-          Text("msg_h_y_nh_gi_ch_ng".tr,
+          Text("Hãy đánh giá chúng mình",
               style: CustomTextStyles.titleLargeRobotoWhiteA700),
           SizedBox(height: 7.v),
           Container(
               width: 278.h,
               margin: EdgeInsets.symmetric(horizontal: 4.h),
-              child: Text("msg_ch_ng_m_nh_v_n_ang".tr,
+              child: Text(
+                  "Chúng mình vẫn đang từng ngày cố gắng hết sức để cải thiện sản phẩm, nên đừng ngần ngại hãy cho chúng mình biết chất lượng sản phẩm của chúng mình ra sao!",
                   maxLines: 4,
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.center,
@@ -129,11 +117,11 @@ class FeedbacksnineteenScreen extends StatelessWidget {
                       EdgeInsets.symmetric(horizontal: 17.h, vertical: 16.v),
                   decoration: AppDecoration.fillGray.copyWith(
                       borderRadius: BorderRadiusStyle.roundedBorder17),
-                  child: Text("msg_h_y_vi_t_nh_ng_g_p".tr,
+                  child: Text("Hãy viết những góp ý vào đây",
                       style: CustomTextStyles.bodyMedium14))),
           CustomElevatedButton(
               width: 180.h,
-              text: "lbl_submit".tr,
+              text: "Submit",
               onPressed: () {
                 onTapSubmit(context);
               },
@@ -146,15 +134,13 @@ class FeedbacksnineteenScreen extends StatelessWidget {
     return CustomBottomBar(onChanged: (BottomBarEnum type) {});
   }
 
-  /// Navigates to the previous screen.
+  /// Navigates back to the previous screen.
   onTapArrowLeft(BuildContext context) {
-    NavigatorService.goBack();
+    Navigator.pop(context);
   }
 
   /// Navigates to the inputnametwoScreen when the action is triggered.
   onTapSubmit(BuildContext context) {
-    NavigatorService.pushNamed(
-      AppRoutes.inputnametwoScreen,
-    );
+    Navigator.pushNamed(context, AppRoutes.inputnametwoScreen);
   }
 }

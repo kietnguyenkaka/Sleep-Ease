@@ -65,27 +65,24 @@ class AppRoutes {
 
   static const String appNavigationScreen = '/app_navigation_screen';
 
-  static const String initialRoute = '/initialRoute';
-
-  static Map<String, WidgetBuilder> get routes => {
-        loadingscreenoneScreen: LoadingscreenoneScreen.builder,
-        inputnametwoScreen: InputnametwoScreen.builder,
-        suggestthreeScreen: SuggestthreeScreen.builder,
-        homefiveScreen: HomefiveScreen.builder,
-        musicplaylistsevenScreen: MusicplaylistsevenScreen.builder,
-        musicsongeightScreen: MusicsongeightScreen.builder,
-        coutdownmusicnineScreen: CoutdownmusicnineScreen.builder,
-        discovertenContainerScreen: DiscovertenContainerScreen.builder,
-        tipselevenScreen: TipselevenScreen.builder,
-        enterthetipstwelveScreen: EnterthetipstwelveScreen.builder,
-        sleepmodethirteenScreen: SleepmodethirteenScreen.builder,
-        suggestfourteenScreen: SuggestfourteenScreen.builder,
-        sleepreportfifteenScreen: SleepreportfifteenScreen.builder,
-        profilesixteenScreen: ProfilesixteenScreen.builder,
-        feedbacksnineteenScreen: FeedbacksnineteenScreen.builder,
-        helptwentyScreen: HelptwentyScreen.builder,
-        archivementsseventeenScreen: ArchivementsseventeenScreen.builder,
-        appNavigationScreen: AppNavigationScreen.builder,
-        initialRoute: LoadingscreenoneScreen.builder
-      };
+  static Map<String, WidgetBuilder> routes = {
+    loadingscreenoneScreen: (context) => LoadingscreenoneScreen(),
+    inputnametwoScreen: (context) => InputnametwoScreen(),
+    suggestthreeScreen: (context) => SuggestthreeScreen(),
+    homefiveScreen: (context) => HomefiveScreen(),
+    musicplaylistsevenScreen: (context) => MusicplaylistsevenScreen(),
+    musicsongeightScreen: (context) => MusicsongeightScreen(),
+    coutdownmusicnineScreen: (context) => CoutdownmusicnineScreen(),
+    discovertenContainerScreen: (context) => DiscovertenContainerScreen(),
+    tipselevenScreen: (context) => TipselevenScreen(),
+    enterthetipstwelveScreen: (context) => EnterthetipstwelveScreen(),
+    sleepmodethirteenScreen: (context) => SleepmodethirteenScreen(),
+    suggestfourteenScreen: (context) => SuggestfourteenScreen(),
+    sleepreportfifteenScreen: (context) => SleepreportfifteenScreen(),
+    profilesixteenScreen: (context) => ProfilesixteenScreen(),
+    feedbacksnineteenScreen: (context) => FeedbacksnineteenScreen(),
+    helptwentyScreen: (context) => HelptwentyScreen(),
+    archivementsseventeenScreen: (context) => ArchivementsseventeenScreen(),
+    appNavigationScreen: (context) => AppNavigationScreen()
+  };
 }

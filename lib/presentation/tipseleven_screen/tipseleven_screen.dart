@@ -1,5 +1,3 @@
-import 'bloc/tipseleven_bloc.dart';
-import 'models/tipseleven_model.dart';
 import 'package:dreamease/core/app_export.dart';
 import 'package:dreamease/widgets/custom_bottom_bar.dart';
 import 'package:flutter/material.dart';
@@ -10,57 +8,49 @@ class TipselevenScreen extends StatelessWidget {
 
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 
-  static Widget builder(BuildContext context) {
-    return BlocProvider<TipselevenBloc>(
-        create: (context) => TipselevenBloc(
-            TipselevenState(tipselevenModelObj: TipselevenModel()))
-          ..add(TipselevenInitialEvent()),
-        child: TipselevenScreen());
-  }
-
   @override
   Widget build(BuildContext context) {
     mediaQueryData = MediaQuery.of(context);
-    return BlocBuilder<TipselevenBloc, TipselevenState>(
-        builder: (context, state) {
-      return SafeArea(
-          child: Scaffold(
-              body: Container(
-                  width: double.maxFinite,
-                  padding: EdgeInsets.symmetric(vertical: 8.v),
-                  child: Column(children: [
-                    SizedBox(height: 29.v),
-                    Expanded(
-                        child: SingleChildScrollView(
-                            child: Column(children: [
-                      CustomImageView(
-                          imagePath: ImageConstant.imgArrowLeft,
-                          height: 24.adaptSize,
-                          width: 24.adaptSize,
-                          alignment: Alignment.centerLeft,
-                          margin: EdgeInsets.only(left: 31.h),
-                          onTap: () {
-                            onTapImgArrowLeft(context);
-                          }),
-                      SizedBox(height: 10.v),
-                      _buildTwenty(context,
-                          userName: "msg_4_th_i_quen_x_u".tr,
-                          userImage: ImageConstant.imgImage5,
-                          userDescription: "msg_c_gi_c_ng_t_t".tr),
-                      SizedBox(height: 24.v),
-                      _buildTwenty(context,
-                          userName: "msg_nh_ng_nghi_n_c_u".tr,
-                          userImage: ImageConstant.imgImage579x136,
-                          userDescription: "msg_t_c_ng_c_a_gi_c".tr),
-                      SizedBox(height: 15.v),
-                      _buildFrameSix(context),
-                      _buildDarkXTabBar(context)
-                    ])))
-                  ])),
-              bottomNavigationBar: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 23.h),
-                  child: _buildBottomBar(context))));
-    });
+    return SafeArea(
+        child: Scaffold(
+            body: Container(
+                width: double.maxFinite,
+                padding: EdgeInsets.symmetric(vertical: 8.v),
+                child: Column(children: [
+                  SizedBox(height: 29.v),
+                  Expanded(
+                      child: SingleChildScrollView(
+                          child: Column(children: [
+                    CustomImageView(
+                        imagePath: ImageConstant.imgArrowLeft,
+                        height: 24.adaptSize,
+                        width: 24.adaptSize,
+                        alignment: Alignment.centerLeft,
+                        margin: EdgeInsets.only(left: 31.h),
+                        onTap: () {
+                          onTapImgArrowLeft(context);
+                        }),
+                    SizedBox(height: 10.v),
+                    _buildTwenty(context,
+                        userName:
+                            "4 Thói Quen Xấu Mà Bác Sĩ Đang Muốn Bạn Dừng Lại Vì Giấc Ngủ Của Bạn",
+                        userImage: ImageConstant.imgImage5,
+                        userDescription:
+                            "Để có giấc ngủ tốt thì cũng khá khó khăn, ngay cả khi bạn tập trung vào việc thực hiện đúng những tips tăng cường giấc ngủ đúng cách - như uống đồ uống thư giãn vào buổi tối, thực hiện các động tác duỗi cơ nhẹ nhàng và thực hiện một nghi lễ vào buổi tối, để bắt đầu. Bởi vì giấc ngủ hoạt động phù hợp với nhịp sinh học hằng ngày của cơ thể ..."),
+                    SizedBox(height: 24.v),
+                    _buildTwenty(context,
+                        userName: "Những nghiên cứu khoa học về giấc ngủ",
+                        userImage: ImageConstant.imgImage579x136,
+                        userDescription:
+                            "Tác động của giấc ngủ đối với sức khỏe: Nhiều nghiên cứu đã chỉ ra rằng việc có giấc ngủ đủ giấc và chất lượng tốt liên quan mật thiết đến nhiều khía cạnh của sức khỏe, bao gồm hệ miễn dịch, tâm lý, trí não, tim mạch và cân nặng. Đồng hồ sinh học và chu kỳ giấc ngủ: Nghiên cứu về đồng hồ sinh học của cơ thể đã giúp hiểu rõ hơn về cách chu ..."),
+                    SizedBox(height: 15.v),
+                    _buildFrameSix(context),
+                    _buildDarkXTabBar(context)
+                  ])))
+                ])),
+            bottomNavigationBar: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 23.h),
+                child: _buildBottomBar(context))));
   }
 
   /// Section Widget
@@ -75,7 +65,7 @@ class TipselevenScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               SizedBox(height: 12.v),
-              Text("msg_nh_ng_th_ng_tin".tr,
+              Text("Những thông tin đáng chú ý",
                   textAlign: TextAlign.center,
                   style: CustomTextStyles.titleLargeOpenSansWhiteA700),
               SizedBox(height: 24.v),
@@ -85,7 +75,8 @@ class TipselevenScreen extends StatelessWidget {
                   width: 204.h,
                   radius: BorderRadius.circular(18.h)),
               SizedBox(height: 10.v),
-              Text("msg_m_i_ng_i_c_n_m_t".tr,
+              Text(
+                  "Mỗi người cần một lượng giấc ngủ khác nhau. Tám phần một giờ là trung bình cho người lớn. Một số người có thể chịu đựng tốt với ít giấc ngủ hơn rất nhiều, trong khi một số khác cần nhiều giấc ngủ hơn mỗi đêm.",
                   style: CustomTextStyles.bodyMedium14)
             ]));
   }
@@ -162,22 +153,18 @@ class TipselevenScreen extends StatelessWidget {
         ]));
   }
 
-  /// Navigates to the previous screen.
+  /// Navigates back to the previous screen.
   onTapImgArrowLeft(BuildContext context) {
-    NavigatorService.goBack();
+    Navigator.pop(context);
   }
 
   /// Navigates to the enterthetipstwelveScreen when the action is triggered.
   onTapNineteen(BuildContext context) {
-    NavigatorService.pushNamed(
-      AppRoutes.enterthetipstwelveScreen,
-    );
+    Navigator.pushNamed(context, AppRoutes.enterthetipstwelveScreen);
   }
 
   /// Navigates to the profilesixteenScreen when the action is triggered.
   onTapImgProfile(BuildContext context) {
-    NavigatorService.pushNamed(
-      AppRoutes.profilesixteenScreen,
-    );
+    Navigator.pushNamed(context, AppRoutes.profilesixteenScreen);
   }
 }

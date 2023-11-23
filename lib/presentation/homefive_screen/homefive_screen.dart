@@ -1,7 +1,4 @@
 import '../homefive_screen/widgets/homefive_item_widget.dart';
-import 'bloc/homefive_bloc.dart';
-import 'models/homefive_item_model.dart';
-import 'models/homefive_model.dart';
 import 'package:dreamease/core/app_export.dart';
 import 'package:dreamease/widgets/app_bar/appbar_subtitle_five.dart';
 import 'package:dreamease/widgets/app_bar/appbar_subtitle_two.dart';
@@ -18,16 +15,6 @@ class HomefiveScreen extends StatelessWidget {
         );
 
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
-
-  static Widget builder(BuildContext context) {
-    return BlocProvider<HomefiveBloc>(
-      create: (context) => HomefiveBloc(HomefiveState(
-        homefiveModelObj: HomefiveModel(),
-      ))
-        ..add(HomefiveInitialEvent()),
-      child: HomefiveScreen(),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,14 +34,14 @@ class HomefiveScreen extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      _buildThirteen(context),
+                      _buildHYChNBINhC(context),
                       SizedBox(height: 72.v),
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Padding(
                           padding: EdgeInsets.only(left: 7.h),
                           child: Text(
-                            "msg_bi_u_gi_c_ng".tr,
+                            "Biểu đồ giấc ngủ",
                             style: theme.textTheme.titleMedium,
                           ),
                         ),
@@ -128,11 +115,11 @@ class HomefiveScreen extends StatelessWidget {
           child: Column(
             children: [
               AppbarSubtitleFive(
-                text: "lbl_hi".tr,
+                text: "Hi!",
                 margin: EdgeInsets.only(right: 40.h),
               ),
               AppbarSubtitleTwo(
-                text: "lbl_thuan".tr,
+                text: "Thuan",
               ),
             ],
           ),
@@ -142,7 +129,7 @@ class HomefiveScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildThirteen(BuildContext context) {
+  Widget _buildHYChNBINhC(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(left: 13.h),
       child: Row(
@@ -156,37 +143,25 @@ class HomefiveScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "msg_h_y_ch_n_1_b_i_nh_c".tr,
+                    "Hãy chọn 1 bài nhạc và đi ngủ thôi!",
                     style: CustomTextStyles.bodyLargeBeVietnamProWhiteA700,
                   ),
                   SizedBox(height: 16.v),
                   SizedBox(
                     height: 120.v,
-                    child: BlocSelector<HomefiveBloc, HomefiveState,
-                        HomefiveModel?>(
-                      selector: (state) => state.homefiveModelObj,
-                      builder: (context, homefiveModelObj) {
-                        return ListView.separated(
-                          scrollDirection: Axis.horizontal,
-                          separatorBuilder: (
-                            context,
-                            index,
-                          ) {
-                            return SizedBox(
-                              width: 16.h,
-                            );
-                          },
-                          itemCount:
-                              homefiveModelObj?.homefiveItemList.length ?? 0,
-                          itemBuilder: (context, index) {
-                            HomefiveItemModel model =
-                                homefiveModelObj?.homefiveItemList[index] ??
-                                    HomefiveItemModel();
-                            return HomefiveItemWidget(
-                              model,
-                            );
-                          },
+                    child: ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      separatorBuilder: (
+                        context,
+                        index,
+                      ) {
+                        return SizedBox(
+                          width: 16.h,
                         );
+                      },
+                      itemCount: 6,
+                      itemBuilder: (context, index) {
+                        return HomefiveItemWidget();
                       },
                     ),
                   ),
@@ -202,7 +177,7 @@ class HomefiveScreen extends StatelessWidget {
               child: _buildTwo(
                 context,
                 userImage: ImageConstant.imgRectangle11,
-                userName: "msg_riding_in_the_horse".tr,
+                userName: "Riding in the horse",
               ),
             ),
           ),
@@ -216,7 +191,7 @@ class HomefiveScreen extends StatelessWidget {
               child: _buildTwo(
                 context,
                 userImage: ImageConstant.imgRectangle1197x132,
-                userName: "lbl_space_noise".tr,
+                userName: "Space noise",
               ),
             ),
           ),
@@ -230,7 +205,7 @@ class HomefiveScreen extends StatelessWidget {
               child: _buildTwo(
                 context,
                 userImage: ImageConstant.imgRectangle111,
-                userName: "lbl_green_mood".tr,
+                userName: "Green mood",
               ),
             ),
           ),
@@ -257,7 +232,7 @@ class HomefiveScreen extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(left: 2.h),
             child: Text(
-              "lbl_weekly_sleep".tr,
+              "Weekly sleep",
               style: CustomTextStyles.bodyLargeOpenSansWhiteA700,
             ),
           ),
@@ -295,14 +270,14 @@ class HomefiveScreen extends StatelessWidget {
               bottom: 10.v,
             ),
             child: Text(
-              "lbl_days".tr,
+              "Days",
               style: CustomTextStyles.bodyMediumInter,
             ),
           ),
           CustomElevatedButton(
             height: 40.v,
             width: 89.h,
-            text: "lbl_weeks".tr,
+            text: "Weeks",
             margin: EdgeInsets.only(left: 28.h),
             buttonStyle: CustomButtonStyles.fillBlueA,
             buttonTextStyle: CustomTextStyles.bodyMediumInterBlack90001,
@@ -328,7 +303,7 @@ class HomefiveScreen extends StatelessWidget {
               bottom: 11.v,
             ),
             child: Text(
-              "lbl_months".tr,
+              "Months",
               style: CustomTextStyles.bodyMediumInter,
             ),
           ),
@@ -358,7 +333,7 @@ class HomefiveScreen extends StatelessWidget {
               bottom: 11.v,
             ),
             child: Text(
-              "lbl_all".tr,
+              "All",
               style: CustomTextStyles.bodyMediumInter,
             ),
           ),

@@ -1,17 +1,12 @@
-import '../models/achievementsgrid_item_model.dart';
 import 'package:dreamease/core/app_export.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class AchievementsgridItemWidget extends StatelessWidget {
-  AchievementsgridItemWidget(
-    this.achievementsgridItemModelObj, {
-    Key? key,
-  }) : super(
+  const AchievementsgridItemWidget({Key? key})
+      : super(
           key: key,
         );
-
-  AchievementsgridItemModel achievementsgridItemModelObj;
 
   @override
   Widget build(BuildContext context) {
@@ -26,20 +21,20 @@ class AchievementsgridItemWidget extends StatelessWidget {
         children: [
           SizedBox(height: 1.v),
           CustomImageView(
-            imagePath: achievementsgridItemModelObj?.earlyRiser,
+            imagePath: ImageConstant.img,
             height: 78.v,
             width: 64.h,
           ),
           SizedBox(height: 2.v),
           Text(
-            achievementsgridItemModelObj.goodNightSSleep!,
+            "Early Riser",
             style: CustomTextStyles.labelLargeInter,
           ),
           SizedBox(height: 8.v),
           SizedBox(
             width: 137.h,
             child: Text(
-              achievementsgridItemModelObj.achievedAfterYou!,
+              "Đạt được khi bạn thức dậy vào lúc 8-9 giờ sáng trong vòng 14 ngày liên tiếp",
               maxLines: 4,
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.center,

@@ -1,7 +1,4 @@
 import '../archivementsseventeen_screen/widgets/achievementsgrid_item_widget.dart';
-import 'bloc/archivementsseventeen_bloc.dart';
-import 'models/achievementsgrid_item_model.dart';
-import 'models/archivementsseventeen_model.dart';
 import 'package:dreamease/core/app_export.dart';
 import 'package:dreamease/widgets/app_bar/appbar_leading_image.dart';
 import 'package:dreamease/widgets/app_bar/appbar_subtitle_four.dart';
@@ -15,15 +12,6 @@ class ArchivementsseventeenScreen extends StatelessWidget {
   ArchivementsseventeenScreen({Key? key}) : super(key: key);
 
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
-
-  static Widget builder(BuildContext context) {
-    return BlocProvider<ArchivementsseventeenBloc>(
-        create: (context) => ArchivementsseventeenBloc(
-            ArchivementsseventeenState(
-                archivementsseventeenModelObj: ArchivementsseventeenModel()))
-          ..add(ArchivementsseventeenInitialEvent()),
-        child: ArchivementsseventeenScreen());
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +55,7 @@ class ArchivementsseventeenScreen extends StatelessWidget {
         title: Row(children: [
           AppbarTitleImage(imagePath: ImageConstant.imgSearchWhiteA700),
           AppbarSubtitleFour(
-              text: "msg_danh_hi_u_c_a_t_i".tr,
+              text: "Danh hiệu của tôi",
               margin: EdgeInsets.only(left: 11.h, top: 3.v, bottom: 5.v))
         ]));
   }
@@ -76,28 +64,17 @@ class ArchivementsseventeenScreen extends StatelessWidget {
   Widget _buildAchievementsGrid(BuildContext context) {
     return Padding(
         padding: EdgeInsets.symmetric(horizontal: 14.h),
-        child: BlocSelector<ArchivementsseventeenBloc,
-                ArchivementsseventeenState, ArchivementsseventeenModel?>(
-            selector: (state) => state.archivementsseventeenModelObj,
-            builder: (context, archivementsseventeenModelObj) {
-              return GridView.builder(
-                  shrinkWrap: true,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      mainAxisExtent: 189.v,
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 0.h,
-                      crossAxisSpacing: 0.h),
-                  physics: NeverScrollableScrollPhysics(),
-                  itemCount: archivementsseventeenModelObj
-                          ?.achievementsgridItemList.length ??
-                      0,
-                  itemBuilder: (context, index) {
-                    AchievementsgridItemModel model =
-                        archivementsseventeenModelObj
-                                ?.achievementsgridItemList[index] ??
-                            AchievementsgridItemModel();
-                    return AchievementsgridItemWidget(model);
-                  });
+        child: GridView.builder(
+            shrinkWrap: true,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                mainAxisExtent: 189.v,
+                crossAxisCount: 2,
+                mainAxisSpacing: 0.h,
+                crossAxisSpacing: 0.h),
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: 8,
+            itemBuilder: (context, index) {
+              return AchievementsgridItemWidget();
             }));
   }
 
@@ -106,8 +83,8 @@ class ArchivementsseventeenScreen extends StatelessWidget {
     return CustomBottomBar(onChanged: (BottomBarEnum type) {});
   }
 
-  /// Navigates to the previous screen.
+  /// Navigates back to the previous screen.
   onTapArrowLeft(BuildContext context) {
-    NavigatorService.goBack();
+    Navigator.pop(context);
   }
 }

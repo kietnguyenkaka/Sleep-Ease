@@ -1,17 +1,12 @@
-import '../models/discoverten_item_model.dart';
 import 'package:dreamease/core/app_export.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class DiscovertenItemWidget extends StatelessWidget {
-  DiscovertenItemWidget(
-    this.discovertenItemModelObj, {
-    Key? key,
-  }) : super(
+  const DiscovertenItemWidget({Key? key})
+      : super(
           key: key,
         );
-
-  DiscovertenItemModel discovertenItemModelObj;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +35,7 @@ class DiscovertenItemWidget extends StatelessWidget {
                 Align(
                   alignment: Alignment.center,
                   child: Text(
-                    discovertenItemModelObj.h!,
+                    "5h",
                     style: CustomTextStyles.bodySmallOpenSansWhiteA700,
                   ),
                 ),
@@ -51,7 +46,7 @@ class DiscovertenItemWidget extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(left: 11.h),
             child: Text(
-              discovertenItemModelObj.wd!,
+              "Wd",
               style: CustomTextStyles.bodySmallOpenSansWhiteA700,
             ),
           ),

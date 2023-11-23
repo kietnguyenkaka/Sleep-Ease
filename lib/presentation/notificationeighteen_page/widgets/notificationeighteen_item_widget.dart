@@ -1,17 +1,12 @@
-import '../models/notificationeighteen_item_model.dart';
 import 'package:dreamease/core/app_export.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class NotificationeighteenItemWidget extends StatelessWidget {
-  NotificationeighteenItemWidget(
-    this.notificationeighteenItemModelObj, {
-    Key? key,
-  }) : super(
+  const NotificationeighteenItemWidget({Key? key})
+      : super(
           key: key,
         );
-
-  NotificationeighteenItemModel notificationeighteenItemModelObj;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +44,7 @@ class NotificationeighteenItemWidget extends StatelessWidget {
                   bottom: 5.v,
                 ),
                 child: Text(
-                  notificationeighteenItemModelObj.dreamEase!,
+                  "DreamEase",
                   style: CustomTextStyles.labelLargeVNtimesNewRomanGray90004,
                 ),
               ),
@@ -60,7 +55,7 @@ class NotificationeighteenItemWidget extends StatelessWidget {
                   bottom: 4.v,
                 ),
                 child: Text(
-                  notificationeighteenItemModelObj.duration!,
+                  "5 hours ago",
                   style: CustomTextStyles.labelLargeVNtimesNewRomanGray90004,
                 ),
               ),
@@ -70,7 +65,7 @@ class NotificationeighteenItemWidget extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(left: 23.h),
             child: Text(
-              notificationeighteenItemModelObj.title!,
+              "Bạn vừa đặt được thành tựu Educated Sleeper!",
               style: CustomTextStyles.bodySmallBeVietnamProGray90004,
             ),
           ),
@@ -78,7 +73,7 @@ class NotificationeighteenItemWidget extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(left: 23.h),
             child: Text(
-              notificationeighteenItemModelObj.moreNotifcations!,
+              "2 more notifcations",
               style: theme.textTheme.labelMedium,
             ),
           ),

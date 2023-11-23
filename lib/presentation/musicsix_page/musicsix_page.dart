@@ -1,5 +1,3 @@
-import 'bloc/musicsix_bloc.dart';
-import 'models/musicsix_model.dart';
 import 'package:dreamease/core/app_export.dart';
 import 'package:dreamease/widgets/app_bar/appbar_subtitle_two.dart';
 import 'package:dreamease/widgets/app_bar/custom_app_bar.dart';
@@ -8,49 +6,39 @@ import 'package:flutter/material.dart';
 class MusicsixPage extends StatelessWidget {
   const MusicsixPage({Key? key}) : super(key: key);
 
-  static Widget builder(BuildContext context) {
-    return BlocProvider<MusicsixBloc>(
-        create: (context) =>
-            MusicsixBloc(MusicsixState(musicsixModelObj: MusicsixModel()))
-              ..add(MusicsixInitialEvent()),
-        child: MusicsixPage());
-  }
-
   @override
   Widget build(BuildContext context) {
     mediaQueryData = MediaQuery.of(context);
-    return BlocBuilder<MusicsixBloc, MusicsixState>(builder: (context, state) {
-      return SafeArea(
-          child: Scaffold(
-              appBar: _buildAppBar(context),
-              body: SizedBox(
-                  width: mediaQueryData.size.width,
-                  child: SingleChildScrollView(
-                      padding: EdgeInsets.only(top: 17.v),
-                      child: Column(children: [
-                        _buildTheBandTorso(context),
-                        SizedBox(height: 14.v),
-                        Align(
-                            alignment: Alignment.centerLeft,
-                            child: Padding(
-                                padding: EdgeInsets.only(left: 16.h),
-                                child: Text("lbl_playlist".tr,
-                                    style: theme.textTheme.titleMedium))),
-                        _buildForOlder(context),
-                        SizedBox(height: 3.v),
-                        Padding(
-                            padding: EdgeInsets.only(left: 6.h, right: 9.h),
-                            child: _buildPlaylist(context,
-                                userImage: ImageConstant.imgRectangle5100x193,
-                                playlistName: "lbl_bolero_90_s".tr,
-                                playlistDescription: "msg_obito_hieuthuhai".tr,
-                                userImage1: ImageConstant.imgRectangle51,
-                                playlistName1: "lbl_classical_sleep".tr,
-                                playlistDescription1: "lbl_youngh_bray".tr)),
-                        SizedBox(height: 13.v),
-                        _buildDarkXTabBar(context)
-                      ])))));
-    });
+    return SafeArea(
+        child: Scaffold(
+            appBar: _buildAppBar(context),
+            body: SizedBox(
+                width: mediaQueryData.size.width,
+                child: SingleChildScrollView(
+                    padding: EdgeInsets.only(top: 17.v),
+                    child: Column(children: [
+                      _buildTheBandTorso(context),
+                      SizedBox(height: 14.v),
+                      Align(
+                          alignment: Alignment.centerLeft,
+                          child: Padding(
+                              padding: EdgeInsets.only(left: 16.h),
+                              child: Text("Playlist",
+                                  style: theme.textTheme.titleMedium))),
+                      _buildForOlder(context),
+                      SizedBox(height: 3.v),
+                      Padding(
+                          padding: EdgeInsets.only(left: 6.h, right: 9.h),
+                          child: _buildPlaylist(context,
+                              userImage: ImageConstant.imgRectangle5100x193,
+                              playlistName: "Bolero 90’s",
+                              playlistDescription: "Obito, HieuThuHai",
+                              userImage1: ImageConstant.imgRectangle51,
+                              playlistName1: "Classical Sleep",
+                              playlistDescription1: "YoungH,Bray")),
+                      SizedBox(height: 13.v),
+                      _buildDarkXTabBar(context)
+                    ])))));
   }
 
   /// Section Widget
@@ -76,7 +64,7 @@ class MusicsixPage extends StatelessWidget {
                   alignment: Alignment.center)
             ])),
         title: AppbarSubtitleTwo(
-            text: "lbl_name".tr, margin: EdgeInsets.only(left: 8.h)));
+            text: "Name", margin: EdgeInsets.only(left: 8.h)));
   }
 
   /// Section Widget
@@ -103,7 +91,7 @@ class MusicsixPage extends StatelessWidget {
                   child: Container(
                       width: 105.h,
                       margin: EdgeInsets.only(top: 88.v, right: 26.h),
-                      child: Text("msg_v_i_nh_ng_b_i_nh_c".tr,
+                      child: Text("Với những bài \nnhạc dịu \ndàng!",
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                           style: CustomTextStyles
@@ -112,7 +100,7 @@ class MusicsixPage extends StatelessWidget {
                   alignment: Alignment.topRight,
                   child: Padding(
                       padding: EdgeInsets.only(top: 63.v),
-                      child: Text("msg_ng_s_u_gi_c_h_n".tr,
+                      child: Text("Ngủ sâu giấc hơn",
                           style:
                               CustomTextStyles.bodyLargeBeVietnamProWhiteA700)))
             ])));
@@ -128,18 +116,17 @@ class MusicsixPage extends StatelessWidget {
               alignment: Alignment.bottomLeft,
               child: Padding(
                   padding: EdgeInsets.only(left: 3.h),
-                  child: Text("lbl_for_older".tr,
-                      style: theme.textTheme.titleMedium))),
+                  child:
+                      Text("For Older  ", style: theme.textTheme.titleMedium))),
           Padding(
               padding: EdgeInsets.only(bottom: 18.v),
               child: _buildPlaylist(context,
                   userImage: ImageConstant.imgRectangle5,
-                  playlistName: "msg_chillout_and_ambient".tr,
-                  playlistDescription: "lbl_huuthuan_ndk".tr,
+                  playlistName: "Chillout and Ambient",
+                  playlistDescription: "Huuthuan, NDK",
                   userImage1: ImageConstant.imgRectangle5100x143,
-                  playlistName1: "lbl_baby_sleep".tr,
-                  playlistDescription1: "lbl_xuanmike_pc".tr,
-                  onTapPlaylist: () {
+                  playlistName1: "Baby Sleep",
+                  playlistDescription1: " XuanMike,PC", onTapPlaylist: () {
                 onTapPlaylist(context);
               }))
         ]));
@@ -242,8 +229,6 @@ class MusicsixPage extends StatelessWidget {
 
   /// Navigates to the musicplaylistsevenScreen when the action is triggered.
   onTapPlaylist(BuildContext context) {
-    NavigatorService.pushNamed(
-      AppRoutes.musicplaylistsevenScreen,
-    );
+    Navigator.pushNamed(context, AppRoutes.musicplaylistsevenScreen);
   }
 }

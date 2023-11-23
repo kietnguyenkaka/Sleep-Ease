@@ -1,25 +1,15 @@
-import 'bloc/suggestthree_bloc.dart';
-import 'models/suggestthree_model.dart';
 import 'package:dreamease/core/app_export.dart';
 import 'package:dreamease/widgets/custom_elevated_button.dart';
 import 'package:dreamease/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
 class SuggestthreeScreen extends StatelessWidget {
-  const SuggestthreeScreen({Key? key})
+  SuggestthreeScreen({Key? key})
       : super(
           key: key,
         );
 
-  static Widget builder(BuildContext context) {
-    return BlocProvider<SuggestthreeBloc>(
-      create: (context) => SuggestthreeBloc(SuggestthreeState(
-        suggestthreeModelObj: SuggestthreeModel(),
-      ))
-        ..add(SuggestthreeInitialEvent()),
-      child: SuggestthreeScreen(),
-    );
-  }
+  TextEditingController textFieldController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +84,7 @@ class SuggestthreeScreen extends StatelessWidget {
                           child: Padding(
                             padding: EdgeInsets.only(right: 12.h),
                             child: Text(
-                              "lbl_thuan".tr,
+                              "Thuan",
                               style: theme.textTheme.headlineLarge,
                             ),
                           ),
@@ -110,7 +100,7 @@ class SuggestthreeScreen extends StatelessWidget {
                 SizedBox(height: 82.v),
                 CustomElevatedButton(
                   width: 180.h,
-                  text: "lbl_next".tr,
+                  text: "Next",
                 ),
                 SizedBox(height: 5.v),
               ],
@@ -137,7 +127,7 @@ class SuggestthreeScreen extends StatelessWidget {
         width: 249.h,
         margin: EdgeInsets.only(right: 8.h),
         child: Text(
-          "msg_b_n_thu_c_tu_i".tr,
+          "Bạn thuộc độ tuổi người trưởng thành. Chúng mình đề xuất thời gian ngủ trung bình tầm 7 - 9 giờ ( Có thể tuỳ thuộc vào cơ địa, và nhu cầu của bạn )",
           maxLines: 4,
           overflow: TextOverflow.ellipsis,
           style: CustomTextStyles.bodyMedium14,
@@ -167,23 +157,17 @@ class SuggestthreeScreen extends StatelessWidget {
               right: 3.h,
             ),
             child: Text(
-              "msg_h_y_nh_p_th_i_gian".tr,
+              "Hãy nhập thời gian ngủ trung bình 1 ngày của bạn",
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: CustomTextStyles.bodyMedium14,
             ),
           ),
           SizedBox(height: 13.v),
-          BlocSelector<SuggestthreeBloc, SuggestthreeState,
-              TextEditingController?>(
-            selector: (state) => state.textFieldController,
-            builder: (context, textFieldController) {
-              return CustomTextFormField(
-                controller: textFieldController,
-                hintText: "lbl_hour".tr,
-                textInputAction: TextInputAction.done,
-              );
-            },
+          CustomTextFormField(
+            controller: textFieldController,
+            hintText: "Hour",
+            textInputAction: TextInputAction.done,
           ),
           SizedBox(height: 11.v),
         ],

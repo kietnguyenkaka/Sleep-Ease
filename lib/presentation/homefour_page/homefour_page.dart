@@ -1,7 +1,4 @@
 import '../homefour_page/widgets/homefour_item_widget.dart';
-import 'bloc/homefour_bloc.dart';
-import 'models/homefour_item_model.dart';
-import 'models/homefour_model.dart';
 import 'package:dreamease/core/app_export.dart';
 import 'package:dreamease/widgets/app_bar/appbar_subtitle_five.dart';
 import 'package:dreamease/widgets/app_bar/appbar_subtitle_two.dart';
@@ -12,14 +9,6 @@ import 'package:flutter_svg_provider/flutter_svg_provider.dart' as fs;
 
 class HomefourPage extends StatelessWidget {
   const HomefourPage({Key? key}) : super(key: key);
-
-  static Widget builder(BuildContext context) {
-    return BlocProvider<HomefourBloc>(
-        create: (context) =>
-            HomefourBloc(HomefourState(homefourModelObj: HomefourModel()))
-              ..add(HomefourInitialEvent()),
-        child: HomefourPage());
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +30,7 @@ class HomefourPage extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         child: Padding(
                             padding: EdgeInsets.only(left: 15.h),
-                            child: Text("msg_h_y_ch_n_1_b_i_nh_c".tr,
+                            child: Text("Hãy chọn 1 bài nhạc và đi ngủ thôi!",
                                 style: CustomTextStyles
                                     .bodyLargeBeVietnamProWhiteA700))),
                     SizedBox(height: 16.v),
@@ -51,7 +40,7 @@ class HomefourPage extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         child: Padding(
                             padding: EdgeInsets.only(left: 7.h),
-                            child: Text("msg_bi_u_gi_c_ng".tr,
+                            child: Text("Biểu đồ giấc ngủ",
                                 style: theme.textTheme.titleMedium))),
                     SizedBox(height: 14.v),
                     _buildNinetyOne(context),
@@ -97,8 +86,8 @@ class HomefourPage extends StatelessWidget {
                 padding: EdgeInsets.only(left: 8.h),
                 child: Column(children: [
                   AppbarSubtitleFive(
-                      text: "lbl_hi".tr, margin: EdgeInsets.only(right: 40.h)),
-                  AppbarSubtitleTwo(text: "lbl_thuan".tr)
+                      text: "Hi!", margin: EdgeInsets.only(right: 40.h)),
+                  AppbarSubtitleTwo(text: "Thuan")
                 ]))));
   }
 
@@ -106,22 +95,15 @@ class HomefourPage extends StatelessWidget {
   Widget _buildHomeFour(BuildContext context) {
     return SizedBox(
         height: 120.v,
-        child: BlocSelector<HomefourBloc, HomefourState, HomefourModel?>(
-            selector: (state) => state.homefourModelObj,
-            builder: (context, homefourModelObj) {
-              return ListView.separated(
-                  padding: EdgeInsets.only(left: 15.h),
-                  scrollDirection: Axis.horizontal,
-                  separatorBuilder: (context, index) {
-                    return SizedBox(width: 16.h);
-                  },
-                  itemCount: homefourModelObj?.homefourItemList.length ?? 0,
-                  itemBuilder: (context, index) {
-                    HomefourItemModel model =
-                        homefourModelObj?.homefourItemList[index] ??
-                            HomefourItemModel();
-                    return HomefourItemWidget(model);
-                  });
+        child: ListView.separated(
+            padding: EdgeInsets.only(left: 15.h),
+            scrollDirection: Axis.horizontal,
+            separatorBuilder: (context, index) {
+              return SizedBox(width: 16.h);
+            },
+            itemCount: 6,
+            itemBuilder: (context, index) {
+              return HomefourItemWidget();
             }));
   }
 
@@ -140,16 +122,16 @@ class HomefourPage extends StatelessWidget {
                       children: [
                         Padding(
                             padding: EdgeInsets.only(left: 1.h),
-                            child: Text("lbl_100".tr,
-                                style: theme.textTheme.bodySmall)),
+                            child:
+                                Text("100%", style: theme.textTheme.bodySmall)),
                         SizedBox(height: 18.v),
-                        Text("lbl_90".tr, style: theme.textTheme.bodySmall),
+                        Text("90%", style: theme.textTheme.bodySmall),
                         SizedBox(height: 18.v),
-                        Text("lbl_80".tr, style: theme.textTheme.bodySmall),
+                        Text("80%", style: theme.textTheme.bodySmall),
                         SizedBox(height: 17.v),
-                        Text("lbl_70".tr, style: theme.textTheme.bodySmall),
+                        Text("70%", style: theme.textTheme.bodySmall),
                         SizedBox(height: 19.v),
-                        Text("lbl_60".tr, style: theme.textTheme.bodySmall)
+                        Text("60%", style: theme.textTheme.bodySmall)
                       ])),
               Expanded(
                   child: Padding(
@@ -225,28 +207,28 @@ class HomefourPage extends StatelessWidget {
                             child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text("lbl_mon".tr,
+                                  Text("Mon",
                                       style: CustomTextStyles
                                           .bodySmallWhiteA700_1),
                                   Padding(
                                       padding: EdgeInsets.only(left: 28.h),
-                                      child: Text("lbl_tue".tr,
+                                      child: Text("Tue",
                                           style: CustomTextStyles
                                               .bodySmallWhiteA700_1)),
                                   Spacer(flex: 23),
-                                  Text("lbl_wed".tr,
+                                  Text("Wed",
                                       style: CustomTextStyles
                                           .bodySmallWhiteA700_1),
                                   Spacer(flex: 22),
-                                  Text("lbl_fri".tr,
+                                  Text("Fri",
                                       style: CustomTextStyles
                                           .bodySmallWhiteA700_1),
                                   Spacer(flex: 27),
-                                  Text("lbl_sat".tr,
+                                  Text("Sat",
                                       style: CustomTextStyles
                                           .bodySmallWhiteA700_1),
                                   Spacer(flex: 26),
-                                  Text("lbl_sun".tr,
+                                  Text("Sun",
                                       style:
                                           CustomTextStyles.bodySmallWhiteA700_1)
                                 ]))
@@ -265,7 +247,7 @@ class HomefourPage extends StatelessWidget {
           CustomElevatedButton(
               height: 40.v,
               width: 89.h,
-              text: "lbl_days".tr,
+              text: "Days",
               buttonStyle: CustomButtonStyles.fillBlueA,
               buttonTextStyle: CustomTextStyles.bodyMediumInterBlack90001),
           GestureDetector(
@@ -274,8 +256,8 @@ class HomefourPage extends StatelessWidget {
               },
               child: Padding(
                   padding: EdgeInsets.only(left: 22.h, top: 11.v, bottom: 11.v),
-                  child: Text("lbl_weeks".tr,
-                      style: CustomTextStyles.bodyMediumInter))),
+                  child:
+                      Text("Weeks", style: CustomTextStyles.bodyMediumInter))),
           Opacity(
               opacity: 0.3,
               child: Container(
@@ -287,8 +269,7 @@ class HomefourPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(1.h)))),
           Padding(
               padding: EdgeInsets.only(left: 19.h, top: 11.v, bottom: 11.v),
-              child: Text("lbl_months".tr,
-                  style: CustomTextStyles.bodyMediumInter)),
+              child: Text("Months", style: CustomTextStyles.bodyMediumInter)),
           Opacity(
               opacity: 0.3,
               child: Container(
@@ -301,8 +282,7 @@ class HomefourPage extends StatelessWidget {
           Spacer(),
           Padding(
               padding: EdgeInsets.only(top: 11.v, right: 8.h, bottom: 11.v),
-              child:
-                  Text("lbl_all".tr, style: CustomTextStyles.bodyMediumInter))
+              child: Text("All", style: CustomTextStyles.bodyMediumInter))
         ]));
   }
 
@@ -323,8 +303,6 @@ class HomefourPage extends StatelessWidget {
 
   /// Navigates to the homefiveScreen when the action is triggered.
   onTapTxtLabel(BuildContext context) {
-    NavigatorService.pushNamed(
-      AppRoutes.homefiveScreen,
-    );
+    Navigator.pushNamed(context, AppRoutes.homefiveScreen);
   }
 }
