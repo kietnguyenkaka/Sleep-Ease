@@ -2,8 +2,8 @@ import 'package:dreamease/core/app_export.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class AchievementsgridItemWidget extends StatelessWidget {
-  const AchievementsgridItemWidget({Key? key})
+class ArchivementsseventeenItemWidget extends StatelessWidget {
+  const ArchivementsseventeenItemWidget({Key? key})
       : super(
           key: key,
         );

@@ -76,7 +76,7 @@ class SuggestfourteenScreen extends StatelessWidget {
                                                     .textTheme.headlineLarge)))
                                   ]))),
                       SizedBox(height: 27.v),
-                      _buildUserProfile(context),
+                      _buildThirty(context),
                       SizedBox(height: 46.v),
                       CustomElevatedButton(
                           width: 180.h,
@@ -89,7 +89,7 @@ class SuggestfourteenScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildUserProfile(BuildContext context) {
+  Widget _buildThirty(BuildContext context) {
     return Container(
         margin: EdgeInsets.only(left: 8.h),
         padding: EdgeInsets.symmetric(horizontal: 36.h, vertical: 13.v),

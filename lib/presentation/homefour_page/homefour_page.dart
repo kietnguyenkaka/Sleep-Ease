@@ -293,7 +293,7 @@ class HomefourPage extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 31.h, vertical: 12.v),
         decoration: AppDecoration.fillBlueGray,
         child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
-          SizedBox(height: 44.v),
+          SizedBox(height: 12.v),
           CustomImageView(
               imagePath: ImageConstant.imgProfile,
               height: 24.adaptSize,

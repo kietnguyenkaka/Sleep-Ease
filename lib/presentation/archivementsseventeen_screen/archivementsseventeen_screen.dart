@@ -1,4 +1,4 @@
-import '../archivementsseventeen_screen/widgets/achievementsgrid_item_widget.dart';
+import '../archivementsseventeen_screen/widgets/archivementsseventeen_item_widget.dart';
 import 'package:dreamease/core/app_export.dart';
 import 'package:dreamease/widgets/app_bar/appbar_leading_image.dart';
 import 'package:dreamease/widgets/app_bar/appbar_subtitle_four.dart';
@@ -27,7 +27,7 @@ class ArchivementsseventeenScreen extends StatelessWidget {
                   Expanded(
                       child: SingleChildScrollView(
                           child: Column(children: [
-                    _buildAchievementsGrid(context),
+                    _buildArchivementsSeventeen(context),
                     SizedBox(height: 7.v),
                     Container(
                         height: 92.v,
@@ -61,7 +61,7 @@ class ArchivementsseventeenScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildAchievementsGrid(BuildContext context) {
+  Widget _buildArchivementsSeventeen(BuildContext context) {
     return Padding(
         padding: EdgeInsets.symmetric(horizontal: 14.h),
         child: GridView.builder(
@@ -74,7 +74,7 @@ class ArchivementsseventeenScreen extends StatelessWidget {
             physics: NeverScrollableScrollPhysics(),
             itemCount: 8,
             itemBuilder: (context, index) {
-              return AchievementsgridItemWidget();
+              return ArchivementsseventeenItemWidget();
             }));
   }
 

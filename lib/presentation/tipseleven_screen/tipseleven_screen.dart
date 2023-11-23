@@ -32,16 +32,16 @@ class TipselevenScreen extends StatelessWidget {
                         }),
                     SizedBox(height: 10.v),
                     _buildTwenty(context,
-                        userName:
+                        nhNgNghiNCU:
                             "4 Thói Quen Xấu Mà Bác Sĩ Đang Muốn Bạn Dừng Lại Vì Giấc Ngủ Của Bạn",
-                        userImage: ImageConstant.imgImage5,
-                        userDescription:
+                        imageFive: ImageConstant.imgImage5,
+                        description:
                             "Để có giấc ngủ tốt thì cũng khá khó khăn, ngay cả khi bạn tập trung vào việc thực hiện đúng những tips tăng cường giấc ngủ đúng cách - như uống đồ uống thư giãn vào buổi tối, thực hiện các động tác duỗi cơ nhẹ nhàng và thực hiện một nghi lễ vào buổi tối, để bắt đầu. Bởi vì giấc ngủ hoạt động phù hợp với nhịp sinh học hằng ngày của cơ thể ..."),
                     SizedBox(height: 24.v),
                     _buildTwenty(context,
-                        userName: "Những nghiên cứu khoa học về giấc ngủ",
-                        userImage: ImageConstant.imgImage579x136,
-                        userDescription:
+                        nhNgNghiNCU: "Những nghiên cứu khoa học về giấc ngủ",
+                        imageFive: ImageConstant.imgImage579x136,
+                        description:
                             "Tác động của giấc ngủ đối với sức khỏe: Nhiều nghiên cứu đã chỉ ra rằng việc có giấc ngủ đủ giấc và chất lượng tốt liên quan mật thiết đến nhiều khía cạnh của sức khỏe, bao gồm hệ miễn dịch, tâm lý, trí não, tim mạch và cân nặng. Đồng hồ sinh học và chu kỳ giấc ngủ: Nghiên cứu về đồng hồ sinh học của cơ thể đã giúp hiểu rõ hơn về cách chu ..."),
                     SizedBox(height: 15.v),
                     _buildFrameSix(context),
@@ -107,9 +107,9 @@ class TipselevenScreen extends StatelessWidget {
   /// Common widget
   Widget _buildTwenty(
     BuildContext context, {
-    required String userName,
-    required String userImage,
-    required String userDescription,
+    required String nhNgNghiNCU,
+    required String imageFive,
+    required String description,
   }) {
     return SizedBox(
         height: 196.v,
@@ -129,13 +129,13 @@ class TipselevenScreen extends StatelessWidget {
                         Container(
                             width: 157.h,
                             margin: EdgeInsets.only(top: 25.v, bottom: 115.v),
-                            child: Text(userName,
+                            child: Text(nhNgNghiNCU,
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
                                 style: CustomTextStyles.titleSmallOpenSans_1
                                     .copyWith(color: appTheme.whiteA700))),
                         CustomImageView(
-                            imagePath: userImage,
+                            imagePath: imageFive,
                             height: 79.v,
                             width: 136.h,
                             radius: BorderRadius.circular(5.h),
@@ -145,7 +145,7 @@ class TipselevenScreen extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: SizedBox(
                   width: 311.h,
-                  child: Text(userDescription,
+                  child: Text(description,
                       maxLines: 6,
                       overflow: TextOverflow.ellipsis,
                       style: CustomTextStyles.bodySmallOpenSansGray40001
