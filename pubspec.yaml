@@ -1,0 +1,100 @@
+name: dreamease
+description: A new Flutter project.
+version: 1.0.0+1
+environment: 
+  sdk: '>=2.12.0 <3.0.0'
+dependencies: 
+  flutter: 
+    sdk: flutter
+  cached_network_image: ^3.2.1
+  flutter_svg: ^1.1.6
+  flutter_rating_bar: ^4.0.0
+  flutter_svg_provider: ^1.0.3
+  intl: ^0.18.0
+dev_dependencies: 
+  flutter_test: 
+    sdk: flutter
+flutter: 
+  uses-material-design: true
+  assets: 
+    - assets/
+    - assets/images/
+  fonts: 
+    - family: Telex
+      fonts: 
+        - asset: assets/fonts/TelexRegular.ttf
+          weight: 400
+    - family: Rubik
+      fonts: 
+        - asset: assets/fonts/RubikMedium.ttf
+          weight: 500
+        - asset: assets/fonts/RubikRegular.ttf
+          weight: 400
+        - asset: assets/fonts/RubikRomanSemiBold.ttf
+          weight: 600
+    - family: Be Vietnam Pro
+      fonts: 
+        - asset: assets/fonts/BeVietnamProMedium.ttf
+          weight: 500
+        - asset: assets/fonts/BeVietnamProRegular.ttf
+          weight: 400
+    - family: Alike
+      fonts: 
+        - asset: assets/fonts/AlikeRegular.ttf
+          weight: 400
+    - family: Roboto
+      fonts: 
+        - asset: assets/fonts/RobotoRegular.ttf
+          weight: 400
+        - asset: assets/fonts/RobotoRomanSemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/RobotoRomanBold.ttf
+          weight: 700
+        - asset: assets/fonts/RobotoRomanMedium.ttf
+          weight: 500
+        - asset: assets/fonts/RobotoBlack.ttf
+          weight: 900
+        - asset: assets/fonts/RobotoMedium.ttf
+          weight: 500
+    - family: Asap
+      fonts: 
+        - asset: assets/fonts/AsapRomanMedium.ttf
+          weight: 500
+    - family: Open Sans
+      fonts: 
+        - asset: assets/fonts/OpenSansRomanRegular.ttf
+          weight: 400
+        - asset: assets/fonts/OpenSansRomanSemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/OpenSansRomanBold.ttf
+          weight: 700
+    - family: Inter
+      fonts: 
+        - asset: assets/fonts/InterRegular.ttf
+          weight: 400
+        - asset: assets/fonts/InterBold.ttf
+          weight: 700
+        - asset: assets/fonts/InterMedium.ttf
+          weight: 500
+        - asset: assets/fonts/InterSemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/InterLight.ttf
+          weight: 300
+    - family: Poppins
+      fonts: 
+        - asset: assets/fonts/PoppinsMedium.ttf
+          weight: 500
+        - asset: assets/fonts/PoppinsRegular.ttf
+          weight: 400
+        - asset: assets/fonts/PoppinsBold.ttf
+          weight: 700
+        - asset: assets/fonts/PoppinsSemiBold.ttf
+          weight: 600
+    - family: ABeeZee
+      fonts: 
+        - asset: assets/fonts/ABeeZeeRegular.ttf
+          weight: 400
+    - family: VNtimes New Roman
+      fonts: 
+        - asset: assets/fonts/VNtimesNewRomanBold.ttf
+          weight: 700
