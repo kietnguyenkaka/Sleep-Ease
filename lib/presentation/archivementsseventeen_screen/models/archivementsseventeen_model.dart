@@ -2,23 +2,23 @@
 
 import 'package:equatable/equatable.dart';
 import '../../../core/app_export.dart';
-import 'archivementsseventeen_item_model.dart';
+import 'achievementsgrid_item_model.dart';
 
 /// This class defines the variables used in the [archivementsseventeen_screen],
 /// and is typically used to hold data that is passed between different parts of the application.
 class ArchivementsseventeenModel extends Equatable {
-  ArchivementsseventeenModel({this.archivementsseventeenItemList = const []}) {}
+  ArchivementsseventeenModel({this.achievementsgridItemList = const []}) {}
 
-  List<ArchivementsseventeenItemModel> archivementsseventeenItemList;
+  List<AchievementsgridItemModel> achievementsgridItemList;
 
   ArchivementsseventeenModel copyWith(
-      {List<ArchivementsseventeenItemModel>? archivementsseventeenItemList}) {
+      {List<AchievementsgridItemModel>? achievementsgridItemList}) {
     return ArchivementsseventeenModel(
-      archivementsseventeenItemList:
-          archivementsseventeenItemList ?? this.archivementsseventeenItemList,
+      achievementsgridItemList:
+          achievementsgridItemList ?? this.achievementsgridItemList,
     );
   }
 
   @override
-  List<Object?> get props => [archivementsseventeenItemList];
+  List<Object?> get props => [achievementsgridItemList];
 }

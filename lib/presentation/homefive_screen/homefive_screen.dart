@@ -47,7 +47,7 @@ class HomefiveScreen extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      _buildHYChNBINhC(context),
+                      _buildThirteen(context),
                       SizedBox(height: 72.v),
                       Align(
                         alignment: Alignment.centerLeft,
@@ -142,7 +142,7 @@ class HomefiveScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildHYChNBINhC(BuildContext context) {
+  Widget _buildThirteen(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(left: 13.h),
       child: Row(
@@ -201,8 +201,8 @@ class HomefiveScreen extends StatelessWidget {
             child: IntrinsicWidth(
               child: _buildTwo(
                 context,
-                image: ImageConstant.imgRectangle11,
-                spaceNoise: "msg_riding_in_the_horse".tr,
+                userImage: ImageConstant.imgRectangle11,
+                userName: "msg_riding_in_the_horse".tr,
               ),
             ),
           ),
@@ -215,8 +215,8 @@ class HomefiveScreen extends StatelessWidget {
             child: IntrinsicWidth(
               child: _buildTwo(
                 context,
-                image: ImageConstant.imgRectangle1197x132,
-                spaceNoise: "lbl_space_noise".tr,
+                userImage: ImageConstant.imgRectangle1197x132,
+                userName: "lbl_space_noise".tr,
               ),
             ),
           ),
@@ -229,8 +229,8 @@ class HomefiveScreen extends StatelessWidget {
             child: IntrinsicWidth(
               child: _buildTwo(
                 context,
-                image: ImageConstant.imgRectangle111,
-                spaceNoise: "lbl_green_mood".tr,
+                userImage: ImageConstant.imgRectangle111,
+                userName: "lbl_green_mood".tr,
               ),
             ),
           ),
@@ -400,13 +400,13 @@ class HomefiveScreen extends StatelessWidget {
   /// Common widget
   Widget _buildTwo(
     BuildContext context, {
-    required String image,
-    required String spaceNoise,
+    required String userImage,
+    required String userName,
   }) {
     return Column(
       children: [
         CustomImageView(
-          imagePath: image,
+          imagePath: userImage,
           height: 97.v,
           width: 132.h,
           radius: BorderRadius.circular(
@@ -415,7 +415,7 @@ class HomefiveScreen extends StatelessWidget {
         ),
         SizedBox(height: 8.v),
         Text(
-          spaceNoise,
+          userName,
           style: theme.textTheme.labelLarge!.copyWith(
             color: appTheme.whiteA700,
           ),

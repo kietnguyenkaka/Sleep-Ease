@@ -43,7 +43,7 @@ class EnterthetipstwelveScreen extends StatelessWidget {
                             onTapImgArrowLeft(context);
                           }),
                       SizedBox(height: 9.v),
-                      _buildThIQuenXU(context),
+                      _buildEnterTheTipsTwelve(context),
                       SizedBox(height: 23.v),
                       Container(
                           width: 314.h,
@@ -63,7 +63,7 @@ class EnterthetipstwelveScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildThIQuenXU(BuildContext context) {
+  Widget _buildEnterTheTipsTwelve(BuildContext context) {
     return Padding(
         padding: EdgeInsets.symmetric(horizontal: 25.h),
         child: Row(

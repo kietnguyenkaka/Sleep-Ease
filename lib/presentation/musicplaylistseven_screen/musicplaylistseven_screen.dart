@@ -38,7 +38,7 @@ class MusicplaylistsevenScreen extends StatelessWidget {
                             child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  _buildFiftySix(context),
+                                  _buildPlaylistRow(context),
                                   SizedBox(height: 28.v),
                                   Divider(color: appTheme.gray900),
                                   SizedBox(height: 33.v),
@@ -102,7 +102,7 @@ class MusicplaylistsevenScreen extends StatelessWidget {
                                                     BorderRadius.circular(4.h)))
                                       ])
                                 ]))),
-                    _buildUITabBarPlayer(context)
+                    _buildTabBarPlayer(context)
                   ]))));
     });
   }
@@ -126,7 +126,7 @@ class MusicplaylistsevenScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildFiftySix(BuildContext context) {
+  Widget _buildPlaylistRow(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
       CustomImageView(
           imagePath: ImageConstant.imgPic,
@@ -173,7 +173,7 @@ class MusicplaylistsevenScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildUITabBarPlayer(BuildContext context) {
+  Widget _buildTabBarPlayer(BuildContext context) {
     return Align(
         alignment: Alignment.bottomCenter,
         child: Container(

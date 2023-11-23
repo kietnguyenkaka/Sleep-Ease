@@ -16,13 +16,11 @@ class InputnametwoBloc extends Bloc<InputnametwoEvent, InputnametwoState> {
     Emitter<InputnametwoState> emit,
   ) async {
     emit(state.copyWith(
-        nameController: TextEditingController(),
-        textFieldController: TextEditingController(),
-        textFieldController1: TextEditingController()));
-    Future.delayed(const Duration(milliseconds: 3000), () {
-      NavigatorService.popAndPushNamed(
-        AppRoutes.suggestthreeScreen,
-      );
-    });
+        inputNameController: TextEditingController(),
+        inputField1Controller: TextEditingController(),
+        inputField2Controller: TextEditingController()));
+    NavigatorService.pushNamed(
+      AppRoutes.suggestthreeScreen,
+    );
   }
 }

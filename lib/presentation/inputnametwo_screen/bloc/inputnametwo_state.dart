@@ -5,37 +5,39 @@ part of 'inputnametwo_bloc.dart';
 /// Represents the state of Inputnametwo in the application.
 class InputnametwoState extends Equatable {
   InputnametwoState({
-    this.nameController,
-    this.textFieldController,
-    this.textFieldController1,
+    this.inputNameController,
+    this.inputField1Controller,
+    this.inputField2Controller,
     this.inputnametwoModelObj,
   });
 
-  TextEditingController? nameController;
+  TextEditingController? inputNameController;
 
-  TextEditingController? textFieldController;
+  TextEditingController? inputField1Controller;
 
-  TextEditingController? textFieldController1;
+  TextEditingController? inputField2Controller;
 
   InputnametwoModel? inputnametwoModelObj;
 
   @override
   List<Object?> get props => [
-        nameController,
-        textFieldController,
-        textFieldController1,
+        inputNameController,
+        inputField1Controller,
+        inputField2Controller,
         inputnametwoModelObj,
       ];
   InputnametwoState copyWith({
-    TextEditingController? nameController,
-    TextEditingController? textFieldController,
-    TextEditingController? textFieldController1,
+    TextEditingController? inputNameController,
+    TextEditingController? inputField1Controller,
+    TextEditingController? inputField2Controller,
     InputnametwoModel? inputnametwoModelObj,
   }) {
     return InputnametwoState(
-      nameController: nameController ?? this.nameController,
-      textFieldController: textFieldController ?? this.textFieldController,
-      textFieldController1: textFieldController1 ?? this.textFieldController1,
+      inputNameController: inputNameController ?? this.inputNameController,
+      inputField1Controller:
+          inputField1Controller ?? this.inputField1Controller,
+      inputField2Controller:
+          inputField2Controller ?? this.inputField2Controller,
       inputnametwoModelObj: inputnametwoModelObj ?? this.inputnametwoModelObj,
     );
   }

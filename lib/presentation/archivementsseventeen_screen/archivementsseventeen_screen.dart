@@ -1,6 +1,6 @@
-import '../archivementsseventeen_screen/widgets/archivementsseventeen_item_widget.dart';
+import '../archivementsseventeen_screen/widgets/achievementsgrid_item_widget.dart';
 import 'bloc/archivementsseventeen_bloc.dart';
-import 'models/archivementsseventeen_item_model.dart';
+import 'models/achievementsgrid_item_model.dart';
 import 'models/archivementsseventeen_model.dart';
 import 'package:dreamease/core/app_export.dart';
 import 'package:dreamease/widgets/app_bar/appbar_leading_image.dart';
@@ -39,7 +39,7 @@ class ArchivementsseventeenScreen extends StatelessWidget {
                   Expanded(
                       child: SingleChildScrollView(
                           child: Column(children: [
-                    _buildArchivementsSeventeen(context),
+                    _buildAchievementsGrid(context),
                     SizedBox(height: 7.v),
                     Container(
                         height: 92.v,
@@ -73,7 +73,7 @@ class ArchivementsseventeenScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildArchivementsSeventeen(BuildContext context) {
+  Widget _buildAchievementsGrid(BuildContext context) {
     return Padding(
         padding: EdgeInsets.symmetric(horizontal: 14.h),
         child: BlocSelector<ArchivementsseventeenBloc,
@@ -89,14 +89,14 @@ class ArchivementsseventeenScreen extends StatelessWidget {
                       crossAxisSpacing: 0.h),
                   physics: NeverScrollableScrollPhysics(),
                   itemCount: archivementsseventeenModelObj
-                          ?.archivementsseventeenItemList.length ??
+                          ?.achievementsgridItemList.length ??
                       0,
                   itemBuilder: (context, index) {
-                    ArchivementsseventeenItemModel model =
+                    AchievementsgridItemModel model =
                         archivementsseventeenModelObj
-                                ?.archivementsseventeenItemList[index] ??
-                            ArchivementsseventeenItemModel();
-                    return ArchivementsseventeenItemWidget(model);
+                                ?.achievementsgridItemList[index] ??
+                            AchievementsgridItemModel();
+                    return AchievementsgridItemWidget(model);
                   });
             }));
   }

@@ -1,8 +1,8 @@
 import '../../../core/app_export.dart';
 
-/// This class is used in the [archivementsseventeen_item_widget] screen.
-class ArchivementsseventeenItemModel {
-  ArchivementsseventeenItemModel({
+/// This class is used in the [achievementsgrid_item_widget] screen.
+class AchievementsgridItemModel {
+  AchievementsgridItemModel({
     this.earlyRiser,
     this.goodNightSSleep,
     this.achievedAfterYou,

@@ -41,12 +41,12 @@ class MusicsixPage extends StatelessWidget {
                         Padding(
                             padding: EdgeInsets.only(left: 6.h, right: 9.h),
                             child: _buildPlaylist(context,
-                                image: ImageConstant.imgRectangle5100x193,
-                                boleroS: "lbl_bolero_90_s".tr,
-                                obitoHieuThuHai: "msg_obito_hieuthuhai".tr,
-                                image1: ImageConstant.imgRectangle51,
-                                classicalSleep: "lbl_classical_sleep".tr,
-                                youngHBray: "lbl_youngh_bray".tr)),
+                                userImage: ImageConstant.imgRectangle5100x193,
+                                playlistName: "lbl_bolero_90_s".tr,
+                                playlistDescription: "msg_obito_hieuthuhai".tr,
+                                userImage1: ImageConstant.imgRectangle51,
+                                playlistName1: "lbl_classical_sleep".tr,
+                                playlistDescription1: "lbl_youngh_bray".tr)),
                         SizedBox(height: 13.v),
                         _buildDarkXTabBar(context)
                       ])))));
@@ -133,12 +133,13 @@ class MusicsixPage extends StatelessWidget {
           Padding(
               padding: EdgeInsets.only(bottom: 18.v),
               child: _buildPlaylist(context,
-                  image: ImageConstant.imgRectangle5,
-                  boleroS: "msg_chillout_and_ambient".tr,
-                  obitoHieuThuHai: "lbl_huuthuan_ndk".tr,
-                  image1: ImageConstant.imgRectangle5100x143,
-                  classicalSleep: "lbl_baby_sleep".tr,
-                  youngHBray: "lbl_xuanmike_pc".tr, onTapPlaylist: () {
+                  userImage: ImageConstant.imgRectangle5,
+                  playlistName: "msg_chillout_and_ambient".tr,
+                  playlistDescription: "lbl_huuthuan_ndk".tr,
+                  userImage1: ImageConstant.imgRectangle5100x143,
+                  playlistName1: "lbl_baby_sleep".tr,
+                  playlistDescription1: "lbl_xuanmike_pc".tr,
+                  onTapPlaylist: () {
                 onTapPlaylist(context);
               }))
         ]));
@@ -162,12 +163,12 @@ class MusicsixPage extends StatelessWidget {
   /// Common widget
   Widget _buildPlaylist(
     BuildContext context, {
-    required String image,
-    required String boleroS,
-    required String obitoHieuThuHai,
-    required String image1,
-    required String classicalSleep,
-    required String youngHBray,
+    required String userImage,
+    required String playlistName,
+    required String playlistDescription,
+    required String userImage1,
+    required String playlistName1,
+    required String playlistDescription1,
     Function? onTapPlaylist,
   }) {
     return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -187,14 +188,14 @@ class MusicsixPage extends StatelessWidget {
                   children: [
                     SizedBox(height: 4.v),
                     CustomImageView(
-                        imagePath: image,
+                        imagePath: userImage,
                         height: 100.v,
                         width: 193.h,
                         radius: BorderRadius.circular(8.h)),
                     SizedBox(height: 10.v),
                     Padding(
                         padding: EdgeInsets.only(left: 4.h),
-                        child: Text(boleroS,
+                        child: Text(playlistName,
                             style: CustomTextStyles.titleSmallPoppinsWhiteA700
                                 .copyWith(
                                     color:
@@ -202,7 +203,7 @@ class MusicsixPage extends StatelessWidget {
                     SizedBox(height: 2.v),
                     Padding(
                         padding: EdgeInsets.only(left: 4.h),
-                        child: Text(obitoHieuThuHai,
+                        child: Text(playlistDescription,
                             style: CustomTextStyles.bodySmallPoppinsGray500
                                 .copyWith(color: appTheme.gray500)))
                   ]))),
@@ -218,21 +219,21 @@ class MusicsixPage extends StatelessWidget {
               children: [
                 SizedBox(height: 2.v),
                 CustomImageView(
-                    imagePath: image1,
+                    imagePath: userImage1,
                     height: 100.v,
                     width: 143.h,
                     radius: BorderRadius.circular(8.h)),
                 SizedBox(height: 11.v),
                 Padding(
                     padding: EdgeInsets.only(left: 4.h),
-                    child: Text(classicalSleep,
+                    child: Text(playlistName1,
                         style: CustomTextStyles.titleSmallPoppinsWhiteA700
                             .copyWith(
                                 color: appTheme.whiteA700.withOpacity(0.85)))),
                 SizedBox(height: 2.v),
                 Padding(
                     padding: EdgeInsets.only(left: 4.h),
-                    child: Text(youngHBray,
+                    child: Text(playlistDescription1,
                         style: CustomTextStyles.bodySmallPoppinsGray500
                             .copyWith(color: appTheme.gray500)))
               ]))

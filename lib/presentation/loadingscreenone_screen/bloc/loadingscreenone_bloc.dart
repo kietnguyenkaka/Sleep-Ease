@@ -17,10 +17,8 @@ class LoadingscreenoneBloc
     LoadingscreenoneInitialEvent event,
     Emitter<LoadingscreenoneState> emit,
   ) async {
-    Future.delayed(const Duration(milliseconds: 3000), () {
-      NavigatorService.popAndPushNamed(
-        AppRoutes.inputnametwoScreen,
-      );
-    });
+    NavigatorService.pushNamed(
+      AppRoutes.inputnametwoScreen,
+    );
   }
 }

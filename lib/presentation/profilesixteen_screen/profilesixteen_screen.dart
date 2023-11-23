@@ -42,7 +42,7 @@ class ProfilesixteenScreen extends StatelessWidget {
                       Text("lbl_thuan".tr,
                           style: theme.textTheme.headlineSmall),
                       SizedBox(height: 77.v),
-                      _buildThngBo(context),
+                      _buildNotificationStack(context),
                       SizedBox(height: 123.v),
                       Container(
                           height: 92.v,
@@ -58,7 +58,7 @@ class ProfilesixteenScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildThngBo(BuildContext context) {
+  Widget _buildNotificationStack(BuildContext context) {
     return SizedBox(
         height: 297.v,
         width: 336.h,

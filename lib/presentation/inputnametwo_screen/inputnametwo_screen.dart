@@ -62,25 +62,25 @@ class InputnametwoScreen extends StatelessWidget {
                                   style: CustomTextStyles
                                       .bodyMediumAlikeWhiteA700),
                               SizedBox(height: 27.v),
-                              _buildName(context),
+                              _buildInputName(context),
                               SizedBox(height: 30.v),
-                              _buildTextField(context),
+                              _buildInputField1(context),
                               SizedBox(height: 31.v),
-                              _buildTextField1(context),
+                              _buildInputField2(context),
                               SizedBox(height: 36.v),
-                              _buildNext(context)
+                              _buildNextButton(context)
                             ]))))));
   }
 
   /// Section Widget
-  Widget _buildName(BuildContext context) {
+  Widget _buildInputName(BuildContext context) {
     return BlocSelector<InputnametwoBloc, InputnametwoState,
             TextEditingController?>(
-        selector: (state) => state.nameController,
-        builder: (context, nameController) {
+        selector: (state) => state.inputNameController,
+        builder: (context, inputNameController) {
           return CustomTextFormField(
               width: 210.h,
-              controller: nameController,
+              controller: inputNameController,
               hintText: "lbl_name".tr,
               validator: (value) {
                 if (!isText(value)) {
@@ -92,34 +92,34 @@ class InputnametwoScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildTextField(BuildContext context) {
+  Widget _buildInputField1(BuildContext context) {
     return BlocSelector<InputnametwoBloc, InputnametwoState,
             TextEditingController?>(
-        selector: (state) => state.textFieldController,
-        builder: (context, textFieldController) {
+        selector: (state) => state.inputField1Controller,
+        builder: (context, inputField1Controller) {
           return CustomTextFormField(
               width: 215.h,
-              controller: textFieldController,
+              controller: inputField1Controller,
               hintText: "lbl_age".tr);
         });
   }
 
   /// Section Widget
-  Widget _buildTextField1(BuildContext context) {
+  Widget _buildInputField2(BuildContext context) {
     return BlocSelector<InputnametwoBloc, InputnametwoState,
             TextEditingController?>(
-        selector: (state) => state.textFieldController1,
-        builder: (context, textFieldController1) {
+        selector: (state) => state.inputField2Controller,
+        builder: (context, inputField2Controller) {
           return CustomTextFormField(
               width: 215.h,
-              controller: textFieldController1,
+              controller: inputField2Controller,
               hintText: "lbl_sex".tr,
               textInputAction: TextInputAction.done);
         });
   }
 
   /// Section Widget
-  Widget _buildNext(BuildContext context) {
+  Widget _buildNextButton(BuildContext context) {
     return CustomElevatedButton(
         width: 180.h,
         text: "lbl_next".tr,

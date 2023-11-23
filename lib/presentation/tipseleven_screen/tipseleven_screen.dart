@@ -44,14 +44,14 @@ class TipselevenScreen extends StatelessWidget {
                           }),
                       SizedBox(height: 10.v),
                       _buildTwenty(context,
-                          nhNgNghiNCU: "msg_4_th_i_quen_x_u".tr,
-                          imageFive: ImageConstant.imgImage5,
-                          description: "msg_c_gi_c_ng_t_t".tr),
+                          userName: "msg_4_th_i_quen_x_u".tr,
+                          userImage: ImageConstant.imgImage5,
+                          userDescription: "msg_c_gi_c_ng_t_t".tr),
                       SizedBox(height: 24.v),
                       _buildTwenty(context,
-                          nhNgNghiNCU: "msg_nh_ng_nghi_n_c_u".tr,
-                          imageFive: ImageConstant.imgImage579x136,
-                          description: "msg_t_c_ng_c_a_gi_c".tr),
+                          userName: "msg_nh_ng_nghi_n_c_u".tr,
+                          userImage: ImageConstant.imgImage579x136,
+                          userDescription: "msg_t_c_ng_c_a_gi_c".tr),
                       SizedBox(height: 15.v),
                       _buildFrameSix(context),
                       _buildDarkXTabBar(context)
@@ -116,9 +116,9 @@ class TipselevenScreen extends StatelessWidget {
   /// Common widget
   Widget _buildTwenty(
     BuildContext context, {
-    required String nhNgNghiNCU,
-    required String imageFive,
-    required String description,
+    required String userName,
+    required String userImage,
+    required String userDescription,
   }) {
     return SizedBox(
         height: 196.v,
@@ -138,13 +138,13 @@ class TipselevenScreen extends StatelessWidget {
                         Container(
                             width: 157.h,
                             margin: EdgeInsets.only(top: 25.v, bottom: 115.v),
-                            child: Text(nhNgNghiNCU,
+                            child: Text(userName,
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
                                 style: CustomTextStyles.titleSmallOpenSans_1
                                     .copyWith(color: appTheme.whiteA700))),
                         CustomImageView(
-                            imagePath: imageFive,
+                            imagePath: userImage,
                             height: 79.v,
                             width: 136.h,
                             radius: BorderRadius.circular(5.h),
@@ -154,7 +154,7 @@ class TipselevenScreen extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: SizedBox(
                   width: 311.h,
-                  child: Text(description,
+                  child: Text(userDescription,
                       maxLines: 6,
                       overflow: TextOverflow.ellipsis,
                       style: CustomTextStyles.bodySmallOpenSansGray40001

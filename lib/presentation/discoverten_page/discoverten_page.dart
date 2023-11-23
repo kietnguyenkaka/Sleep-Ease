@@ -31,13 +31,13 @@ class DiscovertenPage extends StatelessWidget {
                 child: SingleChildScrollView(
                     padding: EdgeInsets.only(top: 8.v),
                     child: Column(children: [
-                      _buildThirteen(context),
+                      _buildDiscoverTen(context),
                       SizedBox(height: 16.v),
-                      _buildThIGianNgTrung(context),
+                      _buildTimeRange(context),
                       SizedBox(height: 19.v),
                       _buildAverageSleepTime(context),
                       SizedBox(height: 9.v),
-                      _buildCCTipsCho(context),
+                      _buildCcTipsCho(context),
                       _buildDarkXTabBar(context)
                     ])))));
   }
@@ -66,7 +66,7 @@ class DiscovertenPage extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildThirteen(BuildContext context) {
+  Widget _buildDiscoverTen(BuildContext context) {
     return Container(
         margin: EdgeInsets.symmetric(horizontal: 15.h),
         padding: EdgeInsets.all(5.h),
@@ -122,7 +122,7 @@ class DiscovertenPage extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildThIGianNgTrung(BuildContext context) {
+  Widget _buildTimeRange(BuildContext context) {
     return Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.h),
         child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -288,7 +288,7 @@ class DiscovertenPage extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildCCTipsCho(BuildContext context) {
+  Widget _buildCcTipsCho(BuildContext context) {
     return Container(
         height: 153.v,
         width: 331.h,

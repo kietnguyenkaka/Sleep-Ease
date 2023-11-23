@@ -34,7 +34,7 @@ class FeedbacksnineteenScreen extends StatelessWidget {
                   width: mediaQueryData.size.width,
                   child: SingleChildScrollView(
                       child: Column(children: [
-                    _buildEdit(context),
+                    _buildEditRow(context),
                     SizedBox(height: 12.v),
                     Container(
                         width: 293.h,
@@ -44,8 +44,8 @@ class FeedbacksnineteenScreen extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             style: theme.textTheme.bodyMedium)),
                     SizedBox(height: 5.v),
-                    _buildModal(context),
-                    _buildLastSleepInformation(context),
+                    _buildModalColumn(context),
+                    _buildLastSleepInformationStack(context),
                     SizedBox(height: 30.v),
                     Container(
                         height: 92.v,
@@ -72,7 +72,7 @@ class FeedbacksnineteenScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildEdit(BuildContext context) {
+  Widget _buildEditRow(BuildContext context) {
     return Padding(
         padding: EdgeInsets.symmetric(horizontal: 18.h),
         child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -86,7 +86,7 @@ class FeedbacksnineteenScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildModal(BuildContext context) {
+  Widget _buildModalColumn(BuildContext context) {
     return Container(
         margin: EdgeInsets.only(left: 26.h, right: 30.h),
         padding: EdgeInsets.symmetric(horizontal: 16.h, vertical: 20.v),
@@ -117,7 +117,7 @@ class FeedbacksnineteenScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildLastSleepInformation(BuildContext context) {
+  Widget _buildLastSleepInformationStack(BuildContext context) {
     return SizedBox(
         height: 213.v,
         width: 342.h,
