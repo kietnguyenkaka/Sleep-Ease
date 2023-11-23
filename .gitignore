@@ -1,0 +1,13 @@
+/.dart_tool/
+/.idea/
+/build/
+/.vscode/
+
+/.flutter-plugins
+/.flutter-plugins-dependencies
+/.packages
+/ios/Podfile
+/pubspec.lock
+.git.zip
+.git.git.zip
+.git
